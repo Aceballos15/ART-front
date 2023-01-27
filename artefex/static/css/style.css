@@ -941,6 +941,7 @@ label input[type=radio] {
     }
 
 .main-header.stuck {
+
     top: 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.15);
     width: 100%;
