@@ -148,6 +148,7 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -222,7 +223,6 @@ a:focus {
 
 h1, h2, h3, h4, h5, h6, 
 .h1, .h2, .h3, .h4, .h5, .h6 { 
-    font-family: 'Roboto Condensed', sans-serif;
     color: white;
     line-height: 1.4;
 }
@@ -239,7 +239,6 @@ p {
     font-weight: 400;
 }
 body {
-    font-family: 'Lato', sans-serif;
     font-size: 16px;
     color: #777777;
     background: #fff;
@@ -283,7 +282,6 @@ body {
     box-shadow: none;
 }
 .btn {
-    font-family: 'Roboto Condensed', sans-serif;
     position: relative;
     padding: 10px 20px 8px;
     overflow: hidden;
@@ -435,9 +433,7 @@ body {
     background-color: #fcfcfc;
 }
 
-.great-vibes{ font-family: 'Great Vibes', cursive; }
-.lato { font-family: 'Lato', sans-serif; }
-.roboto { font-family: 'Roboto Condensed', sans-serif;}
+
 .font-weight-700 { font-weight: 700; }
 b, strong {
     font-weight: bold;
@@ -934,6 +930,7 @@ label input[type=radio] {
     box-shadow: none;
     z-index: 9999;
     width: 100%;
+    height: 80px;
     top: 0;
     left: 0;
     -webkit-transition: background .3s;
@@ -996,7 +993,7 @@ label input[type=radio] {
 .header-menu > ul > li > a {
     padding: 35px 0 35px;
     font-size: 16px;
-    color: whitw;
+    color: white;
     text-transform: capitalize;
 }
 
@@ -1199,7 +1196,7 @@ label input[type=radio] {
     top: 50%;
 }
 .main-header.sticky {
-    background: #3F0A0A;
+    background: #591F2A;
     position: fixed;
     width: 100%;
     -webkit-animation-duration: .5s;
@@ -1558,7 +1555,6 @@ label input[type=radio] {
     opacity: .1;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
     text-transform: uppercase;
-    font-family: 'Roboto Condensed', sans-serif;
     left: 68%;
     white-space: nowrap;
 }
@@ -1724,7 +1720,6 @@ label input[type=radio] {
     font-weight: 700;
     font-size: 16px;
     color: #333333;
-    font-family: 'Roboto Condensed', sans-serif;
 }
 .banner-carousel3 .owl-dot.active:before,
 .banner-carousel1 .owl-dot.active:before {
@@ -1733,7 +1728,6 @@ label input[type=radio] {
     font-weight: 700;
     font-size: 16px;
     color: #333333;
-    font-family: 'Roboto Condensed', sans-serif;
 }
 .banner-carousel3 .owl-dot,
 .banner-carousel1 .owl-dot {
@@ -1837,7 +1831,7 @@ label input[type=radio] {
     color: #333333 !important;
     font-size: 14px !important;
     text-transform: uppercase !important;
-    font-family: 'Roboto Condensed', sans-serif !important;
+
 }
 
 .banner-slider2 button.owl-next {
@@ -1984,7 +1978,7 @@ label input[type=radio] {
 }
 
 .pointer-body h6 {
-    font-family: 'Lato', sans-serif;
+
     font-size: 16px;
     color: #333333;
 }
@@ -2094,7 +2088,6 @@ label input[type=radio] {
         font-size: 14px;
         color: #777777;
         font-weight: 700;
-        font-family: 'Roboto Condensed', sans-serif;
         z-index: 11;
         position: relative;
     }
@@ -2396,7 +2389,6 @@ label input[type=radio] {
     display: inline-block;
     font-size: 30px;
     vertical-align: top;
-    font-family: 'Roboto Condensed', sans-serif;
     color: #ff5400;
 }
 
@@ -2752,11 +2744,10 @@ label input[type=radio] {
 }
 .catagory-menu-wrap ul li a {
     font-size: 18px;
-    font-family: 'Roboto Condensed', sans-serif;
+
     font-weight: 700;
 }
 .catagory-menu-wrap ul li ul li a{
-    font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #777777;
@@ -3091,7 +3082,6 @@ label input[type=radio] {
     color: #fff !important;
     font-size: 16px;
     font-weight: 700;
-    font-family: 'Roboto Condensed', sans-serif;
 }
 .view-cart-check-btn a:hover{
     color: #333 !important;
