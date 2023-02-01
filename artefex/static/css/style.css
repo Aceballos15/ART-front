@@ -7185,7 +7185,6 @@ table.dashboard-order-table {
     padding: 20px;
     z-index: 100;
     color: #777777;
-    width: 155px;
     -webkit-transition: .3s all linear;
     transition: .3s all linear;
     -webkit-transform: translate3d(0px, 35px, 0px) !important;

@@ -7,4 +7,5 @@ def home(request):
     return render(request, "home/index.html", {'lista': lista})
 
 def shop(request): 
-    return render(request, "home/shop.html") 
+    lista= [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    return render(request, "home/shop.html", {"lista": lista}) 
