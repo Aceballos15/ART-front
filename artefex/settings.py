@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'auth', 
+    'django.contrib.staticfiles', 
     'billing', 
-    'shop_app'
+    'shop_app', 
+    'authentication'
 ]
 
 MIDDLEWARE = [
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'artefex.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'artefex_oficial',
+        'USER': 'postgres',
+        'PASSWORD': 'aceballos',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
