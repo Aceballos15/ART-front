@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Document Title -->
-    <title>{% block title %}{% endblock %} || Artefex</title>
+    <title>Artefex | {% block title %}{% endblock %}</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="favicon.png' %}" />
@@ -19,8 +19,8 @@
     <!--==== Google Fonts ====-->
     
     <!--==== Bootstrap css file ====-->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+  
     <!--==== Font-Awesome css file ====-->
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
 
@@ -55,13 +55,10 @@
 
     <!--==== Custom css file ====-->
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
   </head>
 
-  <body>
+  <body style="background-color: #fff2e6;">
     <!-- Preloader -->
     <div class="preLoader">
       <div class="preloder-inner">
@@ -82,9 +79,9 @@
 
     <!-- Main header -->
     <header class="header">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top main-header" style="background: #591F2A; ">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: #591F2A; ">
         <a class="navbar-brand" href="#">
-          <img src="{% static 'img/logo.png' %}" alt="Artefex" />
+          <img src="{% static 'img/log.png' %}" alt="Artefex" width="88px" height="38px" />
         </a>
         <button
           class="navbar-toggler"
@@ -100,24 +97,48 @@
       <div class="col-md-9">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <li class="nav-item active mx-2">
                 <a style="color: white" class="nav-link" href="{% url 'home' %}"
-                  >Home <span class="sr-only">(current)</span></a
+                  >
+                  <b>Home</b>
+                  </a
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item mx-2">
                 <a style="color: white" class="nav-link" href="{% url 'shop' %}"
-                  >Shop</a
+                  >
+                  <b>Shop</b>
+                  </a
                 >
               </li>
-              <li class="nav-item">
-                <a style="color: white" class="nav-link" href="#">Disabled</a>
+              <li class="nav-item mx-2">
+                <a style="color: white" class="nav-link" href="#"><b>Categorias</b></a>
+              </li>
+              <li class="nav-item mx-2">
+                <a style="color: white" class="nav-link" href="#"><b>Acerca</b></a>
+              </li>
+              <li class="nav-item mx-2">
+                <a style="color: white" class="nav-link" href="#"><b>Vender</b></a>
+              </li>
+              <li class="nav-item mx-2">
+                <a style="color: white" class="nav-link" href="#"><b>Contacto</b></a>
               </li>
             </ul>
             <ul class="navbar-nav float-right">
-              <li class="nav-item active">
+              <li class="nav-item active mx-2">
                 <a style="color: white" class="nav-link" href="{% url 'home' %}"
-                  >Home <span class="sr-only">(current)</span></a
+                  ><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                  </a
+                >
+              </li>
+              <li class="nav-item active mx-2">
+                <a style="color: white" class="nav-link" href="{% url 'home' %}"
+                  ><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i></a
+                >
+              </li>
+              <li class="nav-item active mx-2">
+                <a style="color: white" class="nav-link" href="{% url 'home' %}"
+                  ><i class="fa fa-user fa-lg" aria-hidden="true"></i></a
                 >
               </li>
             </ul>
@@ -128,19 +149,6 @@
 
     {% block content %}{% endblock %}
 
-    <!-- add add to cart notifacition -->
-    <div class="modal-wish-notifacition">
-      <div class="wish-notifacition-inner media align-items-center">
-        <div class="wish-noti-image">
-          <img src="{% static 'img/product/add-note.jpg' %}" alt="" />
-        </div>
-        <div class="wish-noti-text media-body">
-          <span>Cat Eye Reading Glasses</span>
-          <p>Added To Your Wish Successfully!</p>
-        </div>
-      </div>
-    </div>
-    <!-- add add to cart notifacition -->
 
     <!-- JS Files -->
     <!-- ==== JQuery 3.3.1 js file==== -->
