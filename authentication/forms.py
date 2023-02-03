@@ -35,14 +35,15 @@ class PasswordResetForm(PasswordChangeForm):
 
 
 class CustomersUsers(forms.ModelForm): 
-    Documento= forms.IntegerField(label='Documento', widget=forms.NumberInput(attrs={'class': 'theme-input-style', 'placeholder': 'Documento de identidad', 'required': 'true'}))
-    Name= forms.CharField(label='Nombres', widget=forms.TextInput(attrs={'class': 'theme-input-style', 'placeholder': 'Nombre y apellidos', 'required': 'true'}))
-    Email= forms.CharField(label='Correo', widget=forms.TextInput(attrs={'class': 'theme-input-style', 'placeholder': 'Correo Electronico', 'required': 'true'}))
-    Adress= forms.CharField(label='Direccion', widget=forms.TextInput(attrs={'class': 'theme-input-style', 'placeholder': 'Direccion', 'required': 'true'}))
-    Phone= forms.IntegerField(label='Telefono', widget=forms.NumberInput(attrs={'class': 'theme-input-style', 'placeholder': 'Numero de telefono', 'required': 'true'}))
-    Role= forms.CharField(widget=forms.TextInput(attrs={'value': '1'}))
-    User= forms.IntegerField(widget=forms.NumberInput(attrs={'value': 1 }))
-    
     class Meta:
         model = Users
-        fields = ['Documento', 'Name', 'Email', 'Adress', 'Phone', 'Role', 'User']
+        fields = ['Documento', 'Name', 'Email', 'Adress', 'Phone']
+        
+        widgets = {
+            'Documento': forms.NumberInput(attrs={'class': 'theme-input-style', 'placeholder': 'Documento de identidad', 'required': 'true'}),
+            'Name': forms.TextInput(attrs={'class': 'theme-input-style', 'placeholder': 'Nombre y apellidos', 'required': 'true'}),
+            'Email': forms.TextInput(attrs={'class': 'theme-input-style', 'placeholder': 'Correo Electronico', 'required': 'true'}),
+            'Adress': forms.TextInput(attrs={'class': 'theme-input-style', 'placeholder': 'Direccion', 'required': 'true'}),
+            'Phone': forms.NumberInput(attrs={'class': 'theme-input-style', 'placeholder': 'Numero de telefono', 'required': 'true'}),
+        }
+        

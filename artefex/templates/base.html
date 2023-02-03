@@ -13,7 +13,7 @@
     <title>Artefex | {% block title %}{% endblock %}</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="favicon.png' %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/log.png' %}" />
 
     <!-- CSS Files -->
     <!--==== Google Fonts ====-->
@@ -136,11 +136,19 @@
                   ><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i></a
                 >
               </li>
+              {% if user.is_authenticated %}
               <li class="nav-item active mx-2">
-                <a style="color: white" class="nav-link" href="{% url 'login' %}"
-                  ><i class="fa fa-user fa-lg" aria-hidden="true"></i></a
+                <a style="color: white" class="nav-link" href="{% url 'profile' %}"
+                  > <i class="fa fa-user fa-lg" aria-hidden="true"></i> {{ user }}</a
                 >
               </li>
+                {% else %}
+                <li class="nav-item active mx-2">
+                  <a style="color: white" class="nav-link" href="{% url 'login' %}"
+                    ><i class="fa fa-user fa-lg" aria-hidden="true"></i></a
+                  >
+                </li>
+                {% endif %}
             </ul>
           </div>
         </div>
@@ -393,7 +401,6 @@
     <script src="{% static 'plugins/text-animation/anime.min.js' %}"></script>
 
     <!-- ====google map api key====-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2D8wrWMY3XZnuHO6C31uq90JiuaFzGws"></script>
 
     <!-- ==== Script js file==== -->
     <script src="{% static 'js/scripts.js' %}"></script>

@@ -3,7 +3,7 @@ from django.views import View
 # Create your views here.
 from . import forms
 from django.contrib import messages
-
+from .models import Users 
 
 class RegisterView(View): 
     
@@ -16,7 +16,7 @@ class RegisterView(View):
         
         if form.is_valid():
             form.save()
-            return render(request, 'home/index.html')
+            return render(request, 'authenticate/login.html')
         else:
             return render(request, 'authenticate/signup.html', {'form':form, 'error': 'La informacion no es valida, intenta Nuevamente'})
             
@@ -28,16 +28,22 @@ class profileView(View):
     
     def post(self, request):
         
-        form= forms.CustomersUsers(request.POST)
+        form = forms.CustomersUsers(request.POST)
         
-        if form.is_valid():
-            form.save(commit=False)
+        if form.is_valid(): 
             
-            form.Role = '1'
-            form.User = request.user
+            Documento= form.cleaned_data['Documento']
+            Name= form.cleaned_data['Name']
+            Email= form.cleaned_data['Email']
+            Adress= form.cleaned_data['Adress']
+            Phone= form.cleaned_data['Phone']
+            Role= 1 
+            User =  request.user
+            fm= Users(Documento=Documento, Name=Name, Email=Email, Adress=Adress, Phone=Phone, Role=Role, User=User)
+            fm.save()
             
-            form.save()
-            return render(request, 'home/index.html') 
-        
+            return render(request, 'home/index.html')
         else: 
-            return render(request, 'profile/profile.html', { 'form': form, 'error': form.errors })
+            return render(request, 'profile/profile.html', {'form': form}) 
+        
+        

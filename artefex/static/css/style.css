@@ -2447,7 +2447,6 @@ label input[type=radio] {
     width: 100%;
     left: 0;
     top: 0;
-    background: url('../img/pattern.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -8168,7 +8167,6 @@ table.dashboard-order-table {
     content: "\f0e0" !important;
 }
 .pattern{
-    background-image: url('../../assets/img/pattern.png');
 }
 .footer-logo {
     margin-bottom: 20px;
