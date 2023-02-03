@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Profile {% endblock title %}
+{% block content %}
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">My Account<span class="text-white">Profile</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+    
+    <!-- logout register wrap -->
+    <section class="pt-30 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <!-- dash board nav-->
+                    <div class="dashboard-inner">
+                        <nav>
+                            <ul class="nav-list nav">
+                                <li>
+                                    <a class="dashboard-nav-item active" id="nav-dasboard" data-toggle="tab"  href="#dashboard"><span><img src="{% static 'img/icons/account3.svg' %}" class="svg" alt=""></span>Mi Información</a>
+                                </li>
+                                <li>
+                                    <a class="dashboard-nav-item" id="nav-order" data-toggle="tab"  href="#order"><span><img src="{% static 'img/icons/order.svg' %}" class="svg" alt=""></span>Orders</a>
+                                </li>
+                                <li>
+                                    <a class="dashboard-nav-item" id="nav-down" data-toggle="tab" href="#down"><span><img src="{% static 'img/icons/download.svg' %}" class="svg" alt=""></span>Downloads</a>
+                                </li>
+                                <li>
+                                    <a class="dashboard-nav-item" id="nav-address" data-toggle="tab" href="#address"><span><img src="{% static 'img/icons/address.svg' %}" class="svg" alt=""></span>Address</a>
+                                </li>
+                                <li>
+                                    <a class="dashboard-nav-item" id='nav-adetails' data-toggle="tab" href="#adetails"><span><img src="{% static 'img/icons/account3.svg' %}" class="svg" alt=""></span>Account Details</a>
+                                </li>
+                                <li>
+                                    <a class="dashboard-nav-item" href="logout.html"><span><img src="{% static 'img/icons/logout.svg' %}" class="svg" alt=""></span>Log Out</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- End of dash board nav-->
+                </div>
+                <div class="col-lg-9">
+                    <!-- dashboard content -->
+                    <div class="deshboard-content-wrap">
+                        <div class="tab-content dashboad-tab-content">
+                            <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby='nav-dasboard'>
+                                <!-- dashboard info -->
+                                <div class="dashboard-tab-info">
+                                    <p>Hello <b>{{ user.username }}</b><span> Bienvenido</span></p>
+                                    <p><b>Para terminar de configurar su perfil e iniciar, debemos saber unos datos más</b</p>
+                                <!--End of dashboard info -->
+                                </div>
+                                <!-- Account details-->
+                                <div class="account-details mt-5">
+                                    <form action="#" method="POST" novalidate>
+                                        {% csrf_token %}
+                                        {{ error }}
+                                        {{ form.User }}
+                                        {{ form.Role }}
+                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> {{ form.Documento.label_tag }}</label>
+                                                {{ form.Documento }}
+                                                <small class= "text-danger float-left">{{ form.Documento.errors|striptags }}</small>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <label> {{ form.Name.label_tag }}</label>
+                                                {{ form.Name }}
+                                                <small class= "text-danger float-left">{{ form.Name.errors|striptags }}</small>
+                                            </div>
+                                        </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label> {{ form.Email.label_tag }}</label>
+                                                    {{ form.Email }}
+                                                    <small class= "text-danger float-left">{{ form.Email.errors|striptags }}</small>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label> {{ form.Phone.label_tag }}</label>
+                                                    {{ form.Phone }}
+                                                    <small class= "text-danger float-left">{{ form.Phone.errors|striptags }}</small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label> {{ form.Adress.label_tag }}</label>
+                                                    {{ form.Adress }}
+                                                    <small class= "text-danger float-left">{{ form.Adress.errors|striptags }}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-fill-type w-100 mt-5">Guardar Información </button>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby='nav-order'>
+                                <!-- dashboard order -->
+                                <div class="dashboard-tab-order">
+                                    <!-- dashboard order table -->
+                                    <table class="dashboard-order-table">
+                                        <tbody>
+                                            <tr>
+                                                <th>Order No</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Total</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>#24567</td>
+                                                <td>20 August 2018</td>
+                                                <td>Processing</td>
+                                                <td>$458 .52 <span>(1 Items)</span></td>
+                                                <td><a href="#">View Details</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>#24567</td>
+                                                <td>20 August 2018</td>
+                                                <td>Processing</td>
+                                                <td>$458 .52 <span>(1 Items)</span></td>
+                                                <td><a href="#">View Details</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>#24567</td>
+                                                <td>20 August 2018</td>
+                                                <td>Processing</td>
+                                                <td>$458 .52 <span>(1 Items)</span></td>
+                                                <td><a href="#">View Details</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>#24567</td>
+                                                <td>20 August 2018</td>
+                                                <td>Processing</td>
+                                                <td>$458 .52 <span>(1 Items)</span></td>
+                                                <td><a href="#">View Details</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--End of dashboard order table -->
+                                </div>
+                                <!-- End of dashboard order -->
+                            </div>
+
+                            <div class="tab-pane fade" id="down" role="tabpanel" aria-labelledby='nav-down'>
+                                <!-- Download-->
+                                <div class="dashboard-tab-downlod">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p><span><i class="fa fa-warning"></i></span> No order has been made yet.</p>
+                                        <a href="#" class="go-shop-btn btn btn-fill-type">Go Shop</a>
+                                    </div>
+                                </div>
+                                <!-- End of Download -->
+                            </div>
+
+                            <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby='nav-address'>
+                                <!-- address -->
+                                <div class="address-info">
+                                    <p>The following addresses will be used on the checkout page by default.</p>
+                                    <div class="address-info-inner clearfix">
+                                        <!-- Billing Information -->
+                                        <div class="billing-information">
+                                            <h5>Billing Information</h5>
+                                            <ul>
+                                                <li>
+                                                    4968  Carolina Avenue
+                                                </li>
+                                                <li>Westminster CO</li>
+                                                <li>Colorado</li>
+                                                <li>80030</li>
+                                                <li>970-219-0067</li>
+                                                <li>Australia</li>
+                                                <li><a href="#">Edit</a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- End of Billing Information -->
+
+                                        <!-- Shipping address -->
+                                        <div class="shipping-address">
+                                            <h5>Shipping address</h5>
+                                            <ul>
+                                                <li>
+                                                    4968  Carolina Avenue
+                                                </li>
+                                                <li>Westminster CO</li>
+                                                <li>Colorado</li>
+                                                <li>80030</li>
+                                                <li>970-219-0067</li>
+                                                <li>Australia</li>
+                                                <li><a href="#">Edit</a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- End of Shipping address -->
+                                    </div>
+                                </div>
+                                <!-- End of address -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of dashboard content -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of logout register wrap -->
+
+{% endblock content %}

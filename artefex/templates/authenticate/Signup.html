@@ -1,0 +1,98 @@
+{% extends 'base.html' %}   
+{% load static %}
+{% block title %} SignUp {% endblock title %}
+{% block content %}
+
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">My Account<span class="text-white">Profile</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+     <!-- logout register wrap -->
+     <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <!-- login register -->
+                    <div class="login-register-wrap text-center main-log-regi">
+                        <!-- login register nav -->
+                        <div class="login-register-nav">
+                            <nav class="nav lr-nav text-center">
+                                <a id="nav-register-tab2" data-toggle="tab" href="{% url 'register' %}" class="active">Registrate</a>
+                            </nav>
+                        </div>
+                        <!-- End of login register nav -->
+                        <div class="login-register-content tab-content">
+                            <div class="tab-pane fade show active" id="login2" role="tabpanel" aria-labelledby="nav-login-tab2">
+                                <div class="primary-form parsley-validate">
+                                    {% if error %}
+                                        <div class= "alert alert-danger ">{{ error }}</div>
+                                    {% endif %}
+                                    <form action="#" method="post" novalidate>
+                                        {% csrf_token %} 
+                                        <!-- register input -->
+                                        <div class="name-input input-field">
+                                            <label>
+                                                <img src="{% static 'img/icons/account-icon.svg' %}" class="svg" alt="">
+                                            </label>
+                                            {{ form.username }}
+                                            <small class= "text-danger float-left">{{ form.username.errors|striptags }}</small>
+                                        </div>
+                                        
+                                        <div class="email-input input-field">
+                                            <label>
+                                                <img src="{% static 'img/icons/email-icon.svg' %}" class="svg" alt="">
+                                            </label>
+                                            {{  form.email }}
+                                            <small class= "text-danger float-left">{{ form.email.errors|striptags  }}</small>
+                                        </div>
+    
+                                        <div class="password-input input-field">
+                                            <label>
+                                                <img src="{% static 'img/icons/regi-icon.svg' %}" class="svg" alt="">
+                                            </label>
+                                            {{ form.password1 }}
+                                            <small class= "text-danger float-left">{{ form.password1.errors|striptags  }}</small>
+                                        </div>
+                                        <div class="password-input input-field">
+                                            <label>
+                                                <img src="{% static 'img/icons/regi-icon.svg' %}" class="svg" alt="">
+                                            </label>
+                                            {{ form.password2 }}
+                                            <small class= "text-danger float-left">{{ form.password2.errors|striptags  }}</small>
+                                        </div>
+                                        
+                                        <!-- register input -->
+                                        <button type="submit" class="btn btn-fill-type">Registrate</button>
+                                    </form>
+                                    <p>Tienes una cuenta,<a href="{% url 'login' %}" style="color: #ff7353">¡Inicia session!</a></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End of login register content -->
+                </div>
+                <!-- End of login register -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of logout register wrap -->
+
+
+
+{% endblock content %} 
+
+
+

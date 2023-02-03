@@ -9,3 +9,10 @@ def home(request):
 def shop(request): 
     lista= [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     return render(request, "home/shop.html", {"lista": lista}) 
+
+def login(request):
+    return render(request, "authenticate/login.html")
+
+
+def register(request):
+    return render(request, "authenticate/Signup.html")
