@@ -23,8 +23,8 @@ class Artisan(models.Model):
     Adress= models.CharField(max_length=255, blank=False, null=False)
     Image= models.ImageField(upload_to='artisans')
     Phone= models.IntegerField()
-    Number_bank= models.IntegerField(null=False)
-    Bank= models.CharField(max_length=45, null=False, blank=False)
+    Number_bank= models.IntegerField(null=True)
+    Bank= models.CharField(max_length=45, null=True, blank=True)
     State= models.BooleanField(default=False)
     User= models.ForeignKey(User, on_delete=models.CASCADE)
     
