@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Profile {% endblock title %}
+{% block content %}
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">My Account<span class="text-white">Profile</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+    
+    <!-- logout register wrap -->
+    <section class="">
+        <div class="container">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                      <a style= "color: #ff0000" class="nav-link " href="{% url 'profile' %}">Mi perfil</a>
+                    </li>
+                    <li class="nav-item dropdown" >
+                        <a style= "color: #ff0000" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Mis pedidos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </li>
+                    <li class="nav-item nav2">
+                      <a style= "color: #ff0000" class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item nav2">
+                      <a style= "color: #ff0000" class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
+                <div class="row mx-2" style="justify-content: center;">
+                    <!-- dashboard content -->
+                    <div class="deshboard-content-wrap">
+                        <div class="tab-content dashboad-tab-content">
+                            <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby='nav-dasboard'>
+                                <!-- dashboard info -->
+                                <div class="dashboard-tab-info">
+                                    <p>Hello <b>{{ user.username }}</b><span> Bienvenido</span></p>
+                                    <p><b>Bienvenido a su perfil, Verifique siempre que la información digitada sea la correcta</b</p>
+                                        <div class="address-info text-white">
+                                            <p>Puede editar su perfil en cualquier momento</p>
+                                            <div class="address-info-inner">
+                                                <!-- Billing Information -->
+                                                <div class="billing-information" >
+                                                    {% for user in users %}
+                                                    <ul>
+                                                        <li>
+                                                           Nombres: {{ user.Name }}
+                                                        </li>
+                                                        <li> Correo: {{ user.Email }}</li>
+                                                        <li>Direccion: {{user.Adress}}</li>
+                                                        <li>Telefono: {{user.Phone}}</li>
+                                                        <li><a href="#">Edit</a></li>
+                                                    </ul>
+                                                    {% endfor %}
+                                                </div>
+                                                <!-- End of Billing Information -->
+                                            </div>
+                                        </div>   
+                                
+                                        <!--End of dashboard info -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of dashboard content -->
+                </div>
+        </div>
+    </section>
+    <!-- End of logout register wrap -->
+
+{% endblock content %}

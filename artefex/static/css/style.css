@@ -6937,7 +6937,7 @@ table.dashboard-order-table {
 }
 .address-info-inner .shipping-address ul li:last-child,
 .address-info-inner .billing-information ul li:last-child {
-    margin-top: 28px;
+    margin-top: 20px;
 }
 
 .address-info p {

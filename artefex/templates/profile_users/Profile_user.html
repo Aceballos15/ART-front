@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Profile {% endblock title %}
+{% block content %}
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">My Account<span class="text-white">Profile</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+    
+    <!-- logout register wrap -->
+    <section class="pt-30 pb-100">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a style= "color: #ff0000" class="nav-link " href="{% url 'profile' %}">Mi perfil</a>
+                </li>
+                <li class="nav-item dropdown" >
+                    <a style= "color: #ff0000" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Mis pedidos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item nav2">
+                  <a style= "color: #ff0000" class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item nav2">
+                  <a style= "color: #ff0000" class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              </ul>
+                </div>
+                <div class="row mx-2" style="justify-content: center;">
+                    <!-- dashboard content -->
+                    <div class="deshboard-content-wrap">
+                        <div class="tab-content dashboad-tab-content">
+                            <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby='nav-dasboard'>
+                                <!-- dashboard info -->
+                                <div class="dashboard-tab-info">
+                                    <p>Hello <b>{{ user.username }}</b><span> Bienvenido</span></p>
+                                    <p><b>Para terminar de configurar su perfil e iniciar, debemos saber unos datos más</b</p>
+                                <!--End of dashboard info -->
+                                </div>
+                                <!-- Account details-->
+                                <div class="account-details mt-5">
+                                    <form action="#" method="POST" novalidate>
+                                        {% csrf_token %}
+                                        {{ error }}
+                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label> {{ form.Documento.label_tag }}</label>
+                                                {{ form.Documento }}
+                                                <small class= "text-danger float-left">{{ form.Documento.errors|striptags }}</small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label> {{ form.Name.label_tag }}</label>
+                                                {{ form.Name }}
+                                                <small class= "text-danger float-left">{{ form.Name.errors|striptags }}</small>
+                                            </div>
+                                        </div>
+                                            <div class="row my-4">
+                                                <div class="col-md-6">
+                                                    <label> {{ form.Email.label_tag }}</label>
+                                                    {{ form.Email }}
+                                                    <small class= "text-danger float-left">{{ form.Email.errors|striptags }}</small>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label> {{ form.Phone.label_tag }}</label>
+                                                    {{ form.Phone }}
+                                                    <small class= "text-danger float-left">{{ form.Phone.errors|striptags }}</small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label> {{ form.Adress.label_tag }}</label>
+                                                    {{ form.Adress }}
+                                                    <small class= "text-danger float-left">{{ form.Adress.errors|striptags }}</small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Action</label>
+                                                    <select name="action" id="action" class="theme-input-style">
+                                                        <option value="comprar">Comprar</option>
+                                                        <option value="vender">Vender</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-fill-type w-100 mt-5">Guardar Información </button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of dashboard content -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of logout register wrap -->
+
+{% endblock content %}
