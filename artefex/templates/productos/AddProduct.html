@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Profile {% endblock title %}
+{% block content %}
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">My Account<span class="text-white">Profile</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+    
+    <!-- logout register wrap -->
+    <section class="">
+        <div class="container">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                      <a style= "color: #ff0000" class="nav-link " href="{% url 'profile' %}">Mi perfil</a>
+                    </li>
+                    <li class="nav-item dropdown" >
+                        <a style= "color: #ff0000" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Mis productos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #fff2e6">
+                          <a class="dropdown-item" href="{% url 'AddProduct' %}">Agregar Productos</a>
+                          <a class="dropdown-item" href="#">Ver productos</a>
+                          <a class="dropdown-item" href="#">Gestionar productos</a>
+                        </div>
+                      </li>
+                    <li class="nav-item nav2">
+                      <a style= "color: #ff0000" class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item nav2">
+                      <a style= "color: #ff0000" class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
+                <div class="row mx-2" style="justify-content: center;">
+                    <!-- dashboard content -->
+                    <div class="deshboard-content-wrap">
+                        <div class="tab-content dashboad-tab-content">
+                            <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby='nav-dasboard'>
+                                <!-- dashboard info -->
+                                <div class="dashboard-tab-info">
+                                    <h3 style="color: #777777;"><i class="fa fa-plus" aria-hidden="true"></i> Agregar un producto nuevo </h3>
+                                    
+                                        <div class="address-info">
+                                            <p>Recuerde que su producto quedara en una lista de espera para ser verificado y aprobado</p>
+                                            <div class="account-details">
+                                                <form action="#" method="Post" novalidate>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label> {{ form.Name.label_tag }}</label>
+                                                            {{ form.Name }}
+                                                            <small class= "text-danger float-left">{{ form.Name.errors|striptags }}</small>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label> {{ form.Stock.label_tag }}</label>
+                                                            {{ form.Stock }}
+                                                            <small class= "text-danger float-left">{{ form.Stock.errors|striptags }}</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label> {{ form.Price.label_tag }}</label>
+                                                            {{ form.Price }}
+                                                            <small class= "text-danger float-left">{{ form.Price.errors|striptags }}</small>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label> {{ form.Discount.label_tag }}</label>
+                                                            {{ form.Discount }}
+                                                            <small class= "text-danger float-left">{{ form.Discount.errors|striptags }}</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label> {{ form.Category.label_tag }}</label>
+                                                            {{ form.Category }}
+                                                            <small class= "text-danger float-left">{{ form.Category.errors|striptags }}</small>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label> {{ form.Material.label_tag }}</label>
+                                                            {{ form.Material }}
+                                                            <small class= "text-danger float-left">{{ form.Material.errors|striptags }}</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label> {{ form.Gender.label_tag }}</label>
+                                                            {{ form.Gender }}
+                                                            <small class= "text-danger float-left">{{ form.Gender.errors|striptags }}</small>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label> {{ form.Size.label_tag }}</label>
+                                                            {{ form.Size }}
+                                                            <small class= "text-danger float-left">{{ form.Size.errors|striptags }}</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label> {{ form.Description.label_tag }}</label>
+                                                            {{ form.Description }}
+                                                            <small class= "text-danger float-left">{{ form.Description.errors|striptags }}</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label> {{ form.Characteristics.label_tag }}</label>
+                                                            {{ form.Characteristics }}
+                                                            <small class= "text-danger float-left">{{ form.Characteristics.errors|striptags }}</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label> {{ form.Images.label_tag }}</label>
+                                                            {{ form.Images }}
+                                                            <small class= "text-danger float-left">{{ form.Images.errors|striptags }}</small>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-fill-type w-100 mt-2">Agregar Producto</button>
+                                                </form>
+                            
+                            
+                                                </form>
+                                            </div>
+                                        </div>   
+                                
+                                        <!--End of dashboard info -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of dashboard content -->
+                </div>
+        </div>
+    </section>
+    <!-- End of logout register wrap -->
+
+{% endblock content %}

@@ -25,7 +25,10 @@ urlpatterns = [
     path('shop/', views.shop, name='shop'),
     
     #login and register urls
-    path('', include('authentication.urls'))
+    path('', include('authentication.urls')),
     
+    
+    #Productos 
+    path('', include('shop_app.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
