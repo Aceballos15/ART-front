@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Profile {% endblock title %}
+{% block content %}
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">My Account<span class="text-white">Profile</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+    
+    <!-- logout register wrap -->
+    <section class="">
+        <div class="container">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                      <a style= "color: #ff0000" class="nav-link " href="{% url 'profile' %}">Mi perfil</a>
+                    </li>
+                    <li class="nav-item dropdown" >
+                        <a style= "color: #ff0000" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Mis productos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #fff2e6">
+                          <a class="dropdown-item" href="{% url 'AddProduct' %}">Agregar Productos</a>
+                          <a class="dropdown-item" href="#">Ver productos</a>
+                          <a class="dropdown-item" href="#">Gestionar productos</a>
+                        </div>
+                      </li>
+                    <li class="nav-item nav2">
+                      <a style= "color: #ff0000" class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item nav2">
+                      <a style= "color: #ff0000" class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
+                <div class="row mx-2" style="justify-content: center;">
+                    <!-- dashboard content -->
+                    <div class="deshboard-content-wrap">
+                        <div class="tab-content dashboad-tab-content">
+                            <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby='nav-dasboard'>
+                                <!-- dashboard info -->
+                                <div class="dashboard-tab-info">
+                                    <h3 style="color: #777777;"><i class="fa fa-plus" aria-hidden="true"></i> Agregar un producto nuevo </h3>
+                                    
+                                        <div class="address-info">
+                                            <p>Recuerde que su producto quedara en una lista de espera para ser verificado y aprobado</p>
+                                            <div class="account-details">
+                                              <div class="table-responsive">
+                                                <table class="table">
+                                                  <thead class="thead-dark">
+                                                    <tr>
+                                                      <th scope="col">Consecutivo</th>
+                                                      <th scope="col">Producto</th>
+                                                      <th scope="col">Disponible</th>
+                                                      <th scope="col">Precio</th>
+                                                      <th scope="col">Descuento</th>
+                                                      <th scope="col">Estado</th>
+                                                      <th scope="col">Acciones</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    {% for product in products %}
+                                                      <tr>
+                                                        <th scope="row">{{product.id}}</th>
+                                                        <td>{{product.Name}}</td>
+                                                        <td>{{product.Stock}}</td>
+                                                        <td>{{product.Price}}</td>
+                                                        <td>
+                                                          {% if product.Discount %}
+                                                            $ {{product.Discount}}
+                                                          {% else %}
+                                                            Sin descuento
+                                                          {% endif %}
+                                                          </td>
+                                                        <td>
+                                                        {% if product.State %}
+                                                          Activo
+                                                        {% else %}
+                                                          Inactivo
+                                                        {% endif %}
+                                                        </td>
+                                                        <td>
+                                                          Ver más/editar
+                                                        </td>
+                                                      </tr>
+                                                    {% endfor %}
+                                                    
+                                                  </tbody>
+                                                </table>
+                                              </div>
+                                        </div>   
+                                
+                                        <!--End of dashboard info -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of dashboard content -->
+                </div>
+        </div>
+    </section>
+    <!-- End of logout register wrap -->
+
+{% endblock content %}

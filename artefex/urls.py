@@ -22,13 +22,12 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('shop/', views.shop, name='shop'),
     
     #login and register urls
     path('', include('authentication.urls')),
     
     
-    #Productos 
+    #Productos and shop pages
     path('', include('shop_app.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

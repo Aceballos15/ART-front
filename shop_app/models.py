@@ -2,8 +2,10 @@ from django.db import models
 from authentication.models import Artisan
 # Create your models here.
 
+from django.contrib.auth.models import User 
 
 Sizes= [
+    ('NA', 'No aplica'),
     ('XS', 'XS'),
     ('S', 'S'),
     ('M', 'M'),
@@ -13,6 +15,7 @@ Sizes= [
 ]
 
 Gender= [
+    ('N', 'No aplica'),
     ('F', 'Femenino'), 
     ('M', 'Masculino'),
     ('U', 'Unisex')
@@ -39,20 +42,31 @@ class Product(models.Model):
     Stock= models.IntegerField(null=False)
     Price= models.DecimalField(max_digits=6, decimal_places= 3)
     Discount= models.DecimalField(max_digits=6, decimal_places=3, blank=True, null=True)
-    Images= models.ImageField(upload_to= 'products')
+    Images= models.ManyToManyField('Image', blank=True)
     Size= models.CharField(max_length=4, blank=True, null=True, choices= Sizes) 
     Gender= models.CharField(max_length=2, blank=True, null=True, choices=Gender)
     Material= models.CharField(max_length= 50, blank=True, null=True)
     State= models.BooleanField(default=False)
-    Artisan = models.ForeignKey(Artisan, on_delete=models.CASCADE, null=False)
+    Artisan = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     
     def __str__(self): 
         return self.Name
     
+    
+    
+class Image(models.Model): 
+    Image= models.ImageField(upload_to= 'Products', blank=True, null=True)
+    
+    
+    def __str(self): 
+        return self.Image
+    
+        
+      
 class Coment(models.Model):
     Qualification= models.IntegerField()
     Coment= models.CharField(max_length=255)
     Product= models.ForeignKey(Product, on_delete=models.CASCADE)
     
     def __str__(self): 
-        return self.ID; 
+        return self.ID;  

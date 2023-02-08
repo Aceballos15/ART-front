@@ -32,7 +32,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #fff2e6">
                           <a class="dropdown-item" href="{% url 'AddProduct' %}">Agregar Productos</a>
-                          <a class="dropdown-item" href="#">Ver productos</a>
+                          <a class="dropdown-item" href="{% url 'ProductsUsers' request.user %}">Ver productos</a>
                           <a class="dropdown-item" href="#">Gestionar productos</a>
                         </div>
                       </li>
@@ -55,7 +55,8 @@
                                         <div class="address-info">
                                             <p>Recuerde que su producto quedara en una lista de espera para ser verificado y aprobado</p>
                                             <div class="account-details">
-                                                <form action="#" method="Post" novalidate>
+                                                <form action="#" method="Post" novalidate enctype="multipart/form-data">
+                                                    {% csrf_token %}
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label> {{ form.Name.label_tag }}</label>

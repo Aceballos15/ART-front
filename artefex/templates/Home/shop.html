@@ -97,7 +97,7 @@
                             <div class="tab-content shop-tab-content">
                                 <div class="tab-pane fade show active" role="tabpanel" id="fourcol" aria-labelledby="nav-four-col">
                                     <div class="row">
-                                        {% for i in  lista %}
+                                        {% for product in  Products %}
                                         <div class="col-md-6 col-sm-12 col-lg-4 col-xl-3">
                                             <!-- single product -->
                                             <div class="single-product">
@@ -105,10 +105,12 @@
                                                     <div class="product-thumb">
                                                         <!-- Product Image -->
                                                         <div class="product-image">
-                                                            <a href='shop-details.html'>
-                                                                <img class='normal-state' data-rjs="2" src="{% static 'img/product/jarron.jpg' %}" alt="" style= "width: 255px; height: 350px">
-                                                                <img class='hover-state' data-rjs="2" src="{% static 'img/product/jarron.jpg' %}" alt="" style= "width: 255px; height: 350px">
-                                                                </a>
+                                                            <a href="{% url 'ProductDetail' product.id %}">
+
+                                                                    <img class='normal-state' data-rjs="2" src="{{ prpoduct.Images.Image.url }}" alt="" style= "width: 255px; height: 350px">
+                                                                    <img class='hover-state' data-rjs="2" src="{{imgImage.url}}" alt="" style= "width: 255px; height: 350px">
+
+                                                            </a>
                                                         </div>
                                                         <!-- End of Product Image -->
                         
@@ -156,14 +158,14 @@
                         
                                                         <!-- product title -->
                                                         <div class="product-title">
-                                                            <h4><a href="shop-details.html">Woven Throw Pillow</a></h4>
+                                                            <h4><a href="shop-details.html">{{ product.Name }}</a></h4>
                                                         </div>
                                                         <!-- end of product title -->
                                                     </div>
                         
                                                     <!-- product info -->
                                                     <div class="product-info">
-                                                        <div class="product-price"><h5>$30.1</h5></div>
+                                                        <div class="product-price"><h5>${{product.Price}}</h5></div>
                                                         <div class="product-rating">
                                                             <div class="star-rating">
                                                                 <span></span>
