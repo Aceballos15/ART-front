@@ -12,7 +12,6 @@ class RegisterView(View):
 
     def post(self, request):
         form= forms.CustomerRegistrationForm(request.POST)
-        
         if form.is_valid():
             form.save()
             return redirect('login')
