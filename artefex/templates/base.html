@@ -87,7 +87,7 @@
       <div class="main-header-wraper main-header">
         <div class="container-fluid">
           <div class="row align-items-center">
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="logo-container">
                 <!-- Logo -->
                 <div class="logo">
@@ -110,7 +110,7 @@
                 <!-- End of Logo -->
               </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-10">
               <!-- menu container -->
               <div class="menu-container">
                 <div class="menu-wraper">
@@ -162,6 +162,31 @@
                         </li>
                         <li><a href="{% url 'contact' %}">Contacto</a></li>
                         <li><a href="contact.html">Vende nuestros productos</a></li>
+                        <li>
+                          <a href="{% url 'contact' %}">  
+                            <spam><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> (2)</spam>
+                          </a>
+                      </li>
+
+                        <li><a href="{% url 'contact' %}">
+                          <spam><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i></spam>
+                        </a></li>
+                        {% if user.is_authenticated %}
+                          <li>
+                            <a href="{% url 'profile' %}">
+                              <spam><i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i> {{user.username}}</spam>
+                            </a>
+                            
+                          </li>
+                        {% else %}
+                        <li>
+                          <a href="{% url 'register' %}">
+                            <spam><i class="fa fa-user-plus fa-lg" aria-hidden="true"></i></spam>
+                          </a>
+                          
+                        </li>
+                        {% endif %}
+                       
                       </ul>
                       
                     </div>

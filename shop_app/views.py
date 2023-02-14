@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Image, Product
 
-from . import models 
 from . import forms 
 # Create your views here.
 
@@ -10,7 +9,7 @@ from . import forms
 class GetProductsView(View): 
     
     def get(self, request, user): 
-        products = Product.objects.filter(Artisan= user)
+        products = Product.objects.filter(Artisan= request.user)
         
         return render(request, 'productos/ViewProducts.html', {'products': products})
 
@@ -81,8 +80,20 @@ class ProductDetailView(View):
 class AdminProductView(View): 
     
     def get(self, request, product): 
+        
+        
         products= Product.objects.filter(id=product)
-        return render(request, 'productos/AdminProductDetail.html', {'Products': products})
+        ProductEdit = get_object_or_404(Product, id=product)
+        
+        formEdit = forms.AddProductForm(instance=ProductEdit)
+        return render(request, 'productos/AdminProductDetail.html', {'Products': products, 'form': formEdit})
     
-    def post(self, request, *args, **kwargs): 
-        pass
+    def post(self, request, product): 
+        ProductEdit = get_object_or_404(Product, id=product)
+        form= forms.AddProductForm(data=request.POST, instance=ProductEdit, files=request.FILES)
+        
+        if form.is_valid(): 
+            form.save()
+            return redirect(to= 'ProductsUsers')
+            
+        
