@@ -38,16 +38,7 @@
                             <div class="swiper-wrapper">
                                 
                                 <div class="swiper-slide">
-                                    <img id="zoom_01" class='' src="{% static 'img/shop/product-details.png' %}" data-zoom-image="assets/img/shop/product-details.png" alt=""/>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img id="zoom_02" class='' src="{% static 'img/shop/product-details2.png' %}" data-zoom-image="assets/img/shop/product-details2.png" alt=""/>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img id="zoom_03" class='' src="{% static 'img/shop/product-details3.png' %}" data-zoom-image="assets/img/shop/product-details3.png" alt=""/>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img id="zoom_04" class='' src="{% static 'img/shop/product-details4.png' %}" data-zoom-image="assets/img/shop/product-details4.png" alt=""/>
+                                    <img id="zoom_01" class='' src="{{ product.PrincipalImage.url }}" data-zoom-image="{{ product.PrincipalImage.url }}" alt="" style="width: 772px; height:600px"/>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +76,14 @@
                             </div>
                             <!-- end of product title -->
 
-                             <div class="product-price"><h3 class="new-price">${{product.Discount}}</h3><h5 class="old-price">${{product.Price}}</h5></div>
+                             <div class="product-price">
+                                {% if product.Discount %}
+                                <h3 class="new-price">${{product.Discount}}</h3>
+                                <h5 class="old-price">${{product.Price}}</h5>
+                                {% else %}
+                                <h3 class="new-price">${{product.Price}}</h3>
+                                {% endif %}
+                            </div>
 
                              <div class="product-description">
                                  <p>{{product.Description}}</p>
@@ -106,7 +104,7 @@
                                         <span class="list-heading">Cantidad:</span>
                                         <div class="product-quantity">
                                             <span class="minus"><img src="{% static 'img/icons/minus.svg' %}" class="svg" alt=""></span>
-                                            <input type="text" value="1" class="product-quantity-list product-size">
+                                            <input type="number" value="1"  class="product-quantity-list product-size" max="{{product.Stock}}">
                                             <span class="plus"><img src="{% static 'img/icons/plus.svg' %}" class="svg" alt=""></span>
                                         </div>
                                     </li>
@@ -179,8 +177,7 @@
                         <div class="product-details-nav">
                             <nav class="nav text-center">
                                 <a id="nav-dis-tab" data-toggle="tab" href="#dis" class="active">Caracteristicas</a>
-                                <a id="nav-faq-tab" data-toggle="tab" href="#faq">FAQ</a>
-                                <a id="nav-revc-tab" data-toggle="tab" href="#revc">Reviews(5)</a>
+                                <a id="nav-revc-tab" data-toggle="tab" href="#revc">Comentarios</a>
                             </nav>
                         </div>
                     </div>
@@ -198,42 +195,6 @@
                                     </div>
                                     <!-- End of description inner -->
                                 </div>
-                                <div class="tab-pane fade" id="faq" role="tabpanel" aria-labelledby="nav-faq-tab">
-                                    <!-- faq inner area -->
-                                    <div class="faq-content-wrap">
-                                        <ul class="faq-list mb-0 list-unstyled">
-                                            <li>
-                                                <span class="roboto">
-                                                    01
-                                                </span>
-                                                <h5 class="lato">As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built gay party world.</h5>
-                                                <p>Talent she for lively eat led sister. Entrance strongly packages she out rendered get quitting denoting led. Dwelling confined improved it he no doubtful raptures. Several carried through an of up attempt gravity. Situation to be at offending elsewhere distrusts if.</p>
-                                            </li>
-                                            <li>
-                                                <span class="roboto">
-                                                    02
-                                                </span>
-                                                <h5 class="lato">As am hastily invited settled at limited civilly fortune me really spring in extent?</h5>
-                                                <p>Talent she for lively eat led sister. Entrance strongly packages she out rendered get quitting denoting led. Dwelling confined improved raptures.</p>
-                                            </li>
-                                            <li>
-                                                <span class="roboto">
-                                                    03
-                                                </span>
-                                                <h5 class="lato">Do believing oh disposing to supported allowance we?</h5>
-                                                <p>Talent she for lively eat led sister. Entrance strongly packages she out rendered get quitting denoting led. Dwelling confined improved it he no doubtful raptures. Several carried through an of up attempt gravity. Situation to be at offending elsewhere distrusts if.</p>
-                                            </li>
-                                            <li>
-                                                <span class="roboto">
-                                                    04
-                                                </span>
-                                                <h5 class="lato">Among state cease how and sight since shall disposing to supported allowance?</h5>
-                                                <p>Talent she for lively eat led sister. Entrance strongly packages she out rendered get quitting denoting led. Dwelling confined improved it he no doubtful raptures. Several carried through an of up attempt gravity. Situation to be at offending elsewhere distrusts if.</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- End of faq inner area -->
-                                </div>
                                 <div class="tab-pane fade" id="revc" role="tabpanel" aria-labelledby="nav-revc-tab">
                                     <div class="review-author-wrap">
                                         <!-- review author -->
@@ -241,42 +202,10 @@
                                         <ul class="author-list mb-0 list-unstyled">
                                             <li class="media align-items-center">
                                                 <div class="review-author-image">
-                                                    <img src="assets/img/shop/author1.jpg" data-rjs="2" alt="">
+                                                    <img src="{% static 'img/shop/author1.jpg' %}" data-rjs="2" alt="">
                                                 </div>
                                                 <div class="review-author-details flex-1 media-body">
                                                     <h6>Arnold Mckenzie</h6>
-                                                    <!-- star reating -->
-                                                    <div class="product-rating">
-                                                        <div class="star-rating">
-                                                            <span></span>
-                                                        </div>
-                                                    </div>
-                                                    <!--End of star reating -->
-                                                    <p>We denounce with righteous so distrusts pronounce.</p>
-                                                </div>
-                                            </li>
-                                            <li class="media align-items-center">
-                                                <div class="review-author-image">
-                                                    <img src="assets/img/shop/author2.jpg" data-rjs="2" alt="">
-                                                </div>
-                                                <div class="review-author-details flex-1 media-body">
-                                                    <h6>Kendra Ratzlaff</h6>
-                                                    <!-- star reating -->
-                                                    <div class="product-rating">
-                                                        <div class="star-rating">
-                                                            <span></span>
-                                                        </div>
-                                                    </div>
-                                                    <!--End of star reating -->
-                                                    <p>On the other hand, we denounce with righteous so distrusts pronounce. how<br>marianne graceful dissuade..</p>
-                                                </div>
-                                            </li>
-                                            <li class="media align-items-center">
-                                                <div class="review-author-image">
-                                                    <img src="assets/img/shop/author3.jpg" data-rjs="2" alt="">
-                                                </div>
-                                                <div class="review-author-details flex-1 media-body">
-                                                    <h6>Beulah Ross</h6>
                                                     <!-- star reating -->
                                                     <div class="product-rating">
                                                         <div class="star-rating">
@@ -294,9 +223,9 @@
                                     <!-- review author comment -->
                                     <div class="review-author-comment">
                                         <div class="review-comment-heading">
-                                            <h4>Add a Review</h4>
+                                            <h4>Añadir calificación</h4>
                                         </div>
-                                        <h6 class="lato">Rate It:</h6>
+                                        <h6 class="lato">Calificación:</h6>
                                         <!-- star reating -->
                                         <div class="product-rating">
                                             <div class="star-rating">
@@ -308,8 +237,8 @@
                                         <!-- comment input field -->
                                         <div class="comment-respond form-relative">
                                               <form action="#" method="POST">
-                                                  <input type="text" placeholder="Your Comment" required class="theme-input-style">
-                                                  <button class="btn btn-fill-type">Submit</button>
+                                                  <input type="text" placeholder="Tu opinion" required class="theme-input-style">
+                                                  <button class="btn btn-fill-type">Enviar</button>
                                               </form>  
                                         </div>
                                         <!--End of comment input field -->
@@ -330,7 +259,7 @@
                 <div class="col-12">
                     <!--kinen related products heading -->
                     <div class="related-product-heading text-center">
-                        <h2>Related Products</h2>
+                        <h2>Productos Relacionados</h2>
                     </div>
                     <!--End of kinen related products heading -->
                 </div>
@@ -342,27 +271,19 @@
                                 <!-- Product Image -->
                                 <div class="product-image">
                                     <a href="#">
-                                        <img class='normal-state' data-rjs="2" src="assets/img/product/product-1.jpg" alt="">
-                                        <img class='hover-state' data-rjs="2" src="assets/img/product/product-1b.jpg" alt="">
+                                        <img class='normal-state' data-rjs="2" src="{% static 'img/product/product-1.jpg' %}" alt="">
+                                        <img class='hover-state' data-rjs="2" src="{% static 'img/product/product-1.jpg' %}" alt="">
                                      </a>
                                 </div>
                                 <!-- End of Product Image -->
 
                                 <!-- product button -->
                                 <div class="product-buttons">
-                                    <div class="quick-btn">
-                                        <div class="quick-icon-btn">
-                                            <a href="#" class="quick_view">
-                                                <span class="product-icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
-                                                <span class="icon-title">Quick View</span>
-                                            </a>
-                                        </div>
-                                    </div>
                                     <div class="addto-cart-btn">
                                         <div class="addto-icon-btn">
                                             <a href="#">
                                                 <span class="product-icon"><img src="assets/img/icons/add-bag.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">Add To Cart</span>
+                                                <span class="icon-title">Añadir al carrito</span>
                                             </a>
                                         </div>
                                         
@@ -371,16 +292,7 @@
                                         <div class="wishlist-icon-btn">
                                             <a href="#">
                                             <span class="product-icon"><img src="assets/img/icons/wishlist.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">See Wish List</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="copmare-btn">
-                                        <div class="compare-icon-btn">
-                                            <a href="#">
-                                                <span class="product-icon"><img src="assets/img/icons/compare.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">Compare</span>
+                                                <span class="icon-title">Mi lista de deseos</span>
                                             </a>
                                         </div>
                                         
@@ -398,240 +310,6 @@
                             <!-- product info -->
                             <div class="product-info">
                                 <div class="product-price"><h5>$30.1</h5></div>
-                                <div class="product-rating">
-                                    <div class="star-rating">
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                             <!-- End of product info -->
-                        </div>
-                    </div>
-                    <!-- End of single product -->
-                </div>
-                <div class="col-sm-6 col-12 col-lg-3">
-                    <!-- single product -->
-                    <div class="single-product">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <!-- Product Image -->
-                                <div class="product-image">
-                                    <a href="shop-details.html">
-                                        <img class='normal-state' data-rjs="2" src="assets/img/product/product-2.jpg" alt="">
-                                        <img class='hover-state' data-rjs="2" src="assets/img/product/product-2b.jpg" alt="">
-                                     </a>
-                                </div>
-                                <!-- End of Product Image -->
-
-                                <!-- product button -->
-                                <div class="product-buttons">
-                                    <div class="quick-btn">
-                                        <div class="quick-icon-btn">
-                                            <a href="#" class="quick_view">
-                                                <span class="product-icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
-                                                <span class="icon-title">Quick View</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="addto-cart-btn">
-                                        <div class="addto-icon-btn">
-                                            <a href="#">
-                                                <span class="product-icon"><img src="assets/img/icons/add-bag.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">Add To Cart</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="wishlist-btn">
-                                        <div class="wishlist-icon-btn">
-                                            <a href="#">
-                                            <span class="product-icon"><img src="assets/img/icons/wishlist.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">See Wish List</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="copmare-btn">
-                                        <div class="compare-icon-btn">
-                                            <a href="#">
-                                                <span class="product-icon"><img src="assets/img/icons/compare.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">Compare</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <!-- End of product button -->
-
-                                <!-- product title -->
-                                <div class="product-title">
-                                    <h4><a href="shop-details.html">Copley Upholstered Dining Chair</a></h4>
-                                </div>
-                                <!-- end of product title -->
-
-                                <!-- discount tag -->
-                                <div class="product-tag discount-tag">
-                                    <div class="tag-text">
-                                        <span>-20%</span>
-                                    </div>
-                                </div>
-                                <!-- End of discount tag -->
-                            </div>
-
-                            <!-- product info -->
-                            <div class="product-info">
-                                <div class="product-price"><h5>$24.1</h5></div>
-                                <div class="product-rating">
-                                    <div class="star-rating">
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                             <!-- End of product info -->
-                        </div>
-                    </div>
-                    <!-- End of single product -->
-                </div>
-                <div class="col-sm-6 col-12 col-lg-3">
-                    <!-- single product -->
-                    <div class="single-product">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <!-- Product Image -->
-                                <div class="product-image">
-                                    <a href="shop-details.html">
-                                        <img class='normal-state' data-rjs="2" src="assets/img/product/product-3.jpg" alt="">
-                                        <img class='hover-state' data-rjs="2" src="assets/img/product/product-3b.jpg" alt="">
-                                     </a>
-                                </div>
-                                <!-- End of Product Image -->
-
-                                <!-- product button -->
-                                <div class="product-buttons">
-                                    <div class="quick-btn">
-                                        <div class="quick-icon-btn">
-                                            <a href="#" class="quick_view">
-                                                <span class="product-icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
-                                                <span class="icon-title">Quick View</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="addto-cart-btn">
-                                        <div class="addto-icon-btn">
-                                            <a href="#">
-                                                <span class="product-icon"><img src="assets/img/icons/add-bag.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">Add To Cart</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="wishlist-btn">
-                                        <div class="wishlist-icon-btn">
-                                            <a href="#">
-                                            <span class="product-icon"><img src="assets/img/icons/wishlist.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">See Wish List</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="copmare-btn">
-                                        <div class="compare-icon-btn">
-                                            <a href="#">
-                                                <span class="product-icon"><img src="assets/img/icons/compare.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">Compare</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <!-- End of product button -->
-
-                                <!-- product title -->
-                                <div class="product-title">
-                                    <h4><a href="shop-details.html">Women's Flexible Bottom Shoes</a></h4>
-                                </div>
-                                <!-- end of product title -->
-                            </div>
-
-                            <!-- product info -->
-                            <div class="product-info">
-                                <div class="product-price"><h5>$32</h5></div>
-                                <div class="product-rating">
-                                    <div class="star-rating">
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                             <!-- End of product info -->
-                        </div>
-                    </div>
-                    <!-- End of single product -->
-                </div>
-                <div class="col-sm-6 col-12 col-lg-3">
-                    <!-- single product -->
-                    <div class="single-product">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <!-- Product Image -->
-                                <div class="product-image">
-                                    <a href="shop-details.html">
-                                        <img class='normal-state' data-rjs="2" src="assets/img/product/product-4.jpg" alt="">
-                                        <img class='hover-state' data-rjs="2" src="assets/img/product/product-4b.jpg" alt="">
-                                     </a>
-                                </div>
-                                <!-- End of Product Image -->
-
-                                <!-- product button -->
-                                <div class="product-buttons">
-                                    <div class="quick-btn">
-                                        <div class="quick-icon-btn">
-                                            <a href="#" class="quick_view">
-                                                <span class="product-icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
-                                                <span class="icon-title">Quick View</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="addto-cart-btn">
-                                        <div class="addto-icon-btn">
-                                            <a href="#">
-                                                <span class="product-icon"><img src="assets/img/icons/add-bag.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">Add To Cart</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="wishlist-btn">
-                                        <div class="wishlist-icon-btn">
-                                            <a href="#">
-                                            <span class="product-icon"><img src="assets/img/icons/wishlist.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">See Wish List</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="copmare-btn">
-                                        <div class="compare-icon-btn">
-                                            <a href="#">
-                                                <span class="product-icon"><img src="assets/img/icons/compare.svg" alt="" class="svg"></span>
-                                                <span class="icon-title">Compare</span>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <!-- End of product button -->
-
-                                <!-- product title -->
-                                <div class="product-title">
-                                    <h4><a href="shop-details.html">Women's Strap Sandal</a></h4>
-                                </div>
-                                <!-- end of product title -->
-                            </div>
-
-                            <!-- product info -->
-                            <div class="product-info">
-                                <div class="product-price"><h5>$10</h5></div>
                                 <div class="product-rating">
                                     <div class="star-rating">
                                         <span></span>

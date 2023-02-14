@@ -1,4 +1,10 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} 
+{% block title %}
+  Home
+{% endblock title %}
+
+
+{% block content %}
 <!-- start banner section  -->
 <!-- banner area -->
 <section class="banner-slider">
@@ -453,7 +459,7 @@
 </section>
 <!-- End of call to action section -->
 
-<!-- Modal -->
+{% comment %} <!-- Modal -->
 <div class="modal-window-container fancy">
   <div class="modal-window-overlay"></div>
   <div class="modal-window-content">
@@ -494,7 +500,7 @@
     </div>
   </div>
 </div>
-<!-- End of main wrapper -->
+<!-- End of main wrapper --> {% endcomment %}
 
 <!-- Modal quick view-->
 <div class="modal-quickview-container">

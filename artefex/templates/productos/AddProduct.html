@@ -32,7 +32,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #fff2e6">
                           <a class="dropdown-item" href="{% url 'AddProduct' %}">Agregar Productos</a>
-                          <a class="dropdown-item" href="{% url 'ProductsUsers' request.user %}">Ver productos</a>
+                          <a class="dropdown-item" href="{% url 'ProductsUsers' request.user.id %}">Ver productos</a>
                           <a class="dropdown-item" href="#">Gestionar productos</a>
                         </div>
                       </li>
@@ -79,6 +79,13 @@
                                                             <label> {{ form.Discount.label_tag }}</label>
                                                             {{ form.Discount }}
                                                             <small class= "text-danger float-left">{{ form.Discount.errors|striptags }}</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label> {{ form.PrincipalImage.label_tag }}</label>
+                                                            {{ form.PrincipalImage }}
+                                                            <small class= "text-danger float-left">{{ form.PrincipalImage.errors|striptags }}</small>
                                                         </div>
                                                     </div>
                                                     <div class="row">

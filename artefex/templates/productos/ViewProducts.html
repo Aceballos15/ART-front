@@ -90,7 +90,8 @@
                                                         {% endif %}
                                                         </td>
                                                         <td>
-                                                          Ver más/editar
+                                                          <a href="{% url 'AdminProductDetail' product.id %}" style="color:#ff7353">Ver más/editar <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+                                                          
                                                         </td>
                                                       </tr>
                                                     {% endfor %}

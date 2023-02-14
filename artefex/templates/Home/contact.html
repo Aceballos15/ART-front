@@ -1,0 +1,318 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %}
+  Contacto
+{% endblock title %}
+
+
+{% block content %}
+
+
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">Contactanos<span class="text-white">Contact</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    <!-- office location -->
+    <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <!-- office info -->
+                    <div class="office-ifno-inner">
+                        <h3>Estamos aqui para brindarte la mejor ayuda</h3>
+                        <p>Alteration literature to or an sympathize mr imprudence. Of is ferrars subject as enjoyed or tedi ous cottage. rocuring as in resembled by in agreeable. Next long no gave mr eyes. Admiration advant ages no he celebrated so pianoforte as in resembled unreserved.</p>
+                    </div>
+                    <!--End of office info -->
+
+                    <!-- office address -->
+                    <div class="office-addess-inner">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- single address -->
+                                <div class="single-address">
+                                    <h4>Oficina principal</h4>
+                                    <ul class="list-unstyled mb-0">
+                                        <li>Tel. 3007308535</li>
+                                        <li>CC Cantarrana</li>
+                                        <li>La ceja Antioquia, Colombia</li>
+                                    </ul>
+                                </div>
+                                <!-- End of single address -->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- single address -->
+                                <div class="single-address">
+                                    <h4>Sede Medellin</h4>
+                                    <ul class="list-unstyled mb-0">
+                                        <li>Tel. 3007308535</li>
+                                        <li>Cra 25. #34-56</li>
+                                        <li>Laureles, Medellin</li>
+                                    </ul>
+                                </div>
+                                <!-- End of single address -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of office address -->
+                </div>
+
+                <div class="col-md-5 col-lg-4">
+                    <!-- google map -->
+                    <div class="google-map-wrapper">
+                        <div id="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15870.70404481889!2d-75.4151454!3d6.0391189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4699d1d22ff971%3A0xf7a06469c342ee4e!2sMall%20Plaza%20Cantarrana!5e0!3m2!1ses-419!2sco!4v1676324329177!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <!-- End of google map -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of office location -->
+    
+    <!-- get in touch -->
+    <section class="pb-50">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5 col-lg-4">
+                    <!-- office image -->
+                    <div class="getin-touch-image">
+                        <img src="{% static 'img/add/contacto.jpeg' %}" data-rjs='2' alt="">
+                    </div>
+                    <!-- End of office image -->
+                </div>
+                <div class="col-md-7 col-lg-8">
+                    <!--office address form -->
+                    <div class="office-address-form">
+                        <!-- office-address-head -->
+                        <div class="office-address-head">
+                            <h3>Envia un correo</h3>
+                            <p>Alteration literature to or an sympathize mr imprudence. Of is ferrars subject as enjoyed or tedi ous cottage. rocuring as in resembled by in agreeable. Next long no gave mr eyes. Admiration advant ages no he celebrated so pianoforte as in resembled unreserved.</p>
+                        </div>
+                        <!-- End of office-address-head -->
+                        <div class="address-form-inner contact-page-form parsley-validate">
+                            <form action="#" method="POST" novalidate>
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-form-group">
+                                            <label>
+                                                <img src="{% static 'img/icons/account-icon.svg' %}" class="svg" alt="">
+                                            </label>
+                                            <input type="text" name="name" placeholder="Nombres Completos" class="theme-input-style" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-form-group">
+                                            <label>
+                                                <img src="{% static 'img/icons/email-icon.svg' %}" class="svg" alt="">
+                                            </label>
+                                            <input type="email" name="email" placeholder="Correo Electronico" class="theme-input-style" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="input-form-group">
+                                            <label class="text-area">
+                                                <img src="{% static 'img/icons/message.svg' %}" class="svg" alt="">
+                                            </label>
+                                            <textarea name="message" class="theme-input-style" placeholder="Mensaje"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-fill-type mb-30">Enviar correo </button>
+
+                                        <div class="form-response"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--End of office address form -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of get in touch -->
+
+    <!-- Our social area-->
+    <section class="pb-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <!-- we area social -->
+                    <div class="we-are-social">
+                        <h3>Nuestras Redes sociales</h3>
+                        <p>Alteration literature to or an sympathize mr<br> imprudence is ferrars subject.</p>
+
+                        <div class="footer-social-area">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End of we area social -->
+                </div>
+                <div class="col-md-7">
+                    <div class="insta-feed-inner">
+                        <div class="insta-feed-carousel2 owl-carousel" data-owl-margin='9' data-owl-items="4" data-owl-responsive='{"0": {"items": "2"},"768": {"items": "3"},"1170": {"items": "4"}}' data-owl-speed= "3000" data-owl-dots = 'false' data-owl-autoplay = 'false'>
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta1.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta2.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta3.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta4.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta5.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta6.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta7.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta8.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta9.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta10.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                            <!-- single carousel inner -->
+                            <div class="single-carousel-inner">
+                                <a href="#">
+                                    <img src="assets/img/social/insta11.jpg" alt="">
+                                    <div class="figurecaption">
+                                        <span><i class="fa fa-comment"></i>24</span>
+                                        <span><i class="fa fa-heart"></i>24</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- End of single carousel inner -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Our social area-->
+
+
+
+
+
+
+
+
+
+{% endblock %}

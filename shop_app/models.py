@@ -39,6 +39,7 @@ class Product(models.Model):
     Category= models.IntegerField(choices= Categories)
     Description= models.TextField(max_length= 256 )
     Characteristics= models.TextField(max_length= 500 )
+    PrincipalImage= models.ImageField(upload_to= 'Products', blank=True, null=True)
     Stock= models.IntegerField(null=False)
     Price= models.DecimalField(max_digits=6, decimal_places= 3)
     Discount= models.DecimalField(max_digits=6, decimal_places=3, blank=True, null=True)

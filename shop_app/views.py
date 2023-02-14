@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from .models import Image, Product
 
+from . import models 
 from . import forms 
 # Create your views here.
 
@@ -72,4 +73,16 @@ class ProductDetailView(View):
         return render(request, 'productos/ProductDetail.html', {'Products': products})
     
     def post(self, request, *args, **kwargs):
+        pass
+    
+    
+    
+    
+class AdminProductView(View): 
+    
+    def get(self, request, product): 
+        products= Product.objects.filter(id=product)
+        return render(request, 'productos/AdminProductDetail.html', {'Products': products})
+    
+    def post(self, request, *args, **kwargs): 
         pass

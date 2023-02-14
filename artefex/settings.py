@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#Messages 
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+
 
 # Application definition
 
@@ -137,3 +140,12 @@ MEDIA_ROOT= BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'profile'
+
+
+
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ceballoscardonaalexander@gmail.com'
+EMAIL_HOST_PASSWORD = 'uqbowdalcjnhisjw'
+EMAIL_PORT = 587

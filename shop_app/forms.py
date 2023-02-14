@@ -44,8 +44,9 @@ class AddProductForm(forms.ModelForm):
     Description= forms.CharField(label= 'Descripcion', widget=  forms.Textarea(attrs={ 'class': 'theme-input-style', 'required': True}))
     Characteristics= forms.CharField(label= 'Caracteristicas del producto', widget= forms.Textarea(attrs={ 'class': 'theme-input-style', 'required': False}))
     Images = forms.FileField(label= 'Imagenes del producto', widget= forms.ClearableFileInput(attrs={ 'multiple':True , 'class': 'theme-input-style', 'required': 'True'})) 
+    PrincipalImage= forms.FileField(label= 'Portada del producto', widget= forms.ClearableFileInput(attrs={ 'multiple':True , 'class': 'theme-input-style', 'required': 'True'})) 
     
     class Meta: 
         model = Product
-        fields = ['Name', 'Category', 'Description', 'Characteristics', 'Stock', 'Price', 'Discount', 'Images', 'Size', 'Gender', 'Material']
+        fields = ['Name', 'Category', 'Description', 'Characteristics', 'Stock', 'Price', 'Discount', 'Images', 'Size', 'Gender', 'Material', 'PrincipalImage']
         
