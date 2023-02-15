@@ -163,12 +163,12 @@
                         <li><a href="{% url 'contact' %}">Contacto</a></li>
                         <li><a href="contact.html">Vende nuestros productos</a></li>
                         <li>
-                          <a href="{% url 'contact' %}">  
+                          <a href="{% url 'cart' %}">  
                             <spam><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> (2)</spam>
                           </a>
                       </li>
 
-                        <li><a href="{% url 'contact' %}">
+                        <li><a href="{% url 'wishlist' %}">
                           <spam><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i></spam>
                         </a></li>
                         {% if user.is_authenticated %}

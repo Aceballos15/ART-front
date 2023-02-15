@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Wish List {% endblock title %}
+{% block content %}
+
+
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img='{% static "img/banner/slider-01.png" %}'>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">Wish List<span class="text-white">Shopping</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <!-- woocommerce -->
+                    <div class="woocommerce">
+                        <form action="#" method="POST" class="woocommerce-cart-form">
+                            <!-- cart product wrap -->
+                            <div class="cart-product-wrap wish-table-content">
+                                <!-- shope table -->
+                                <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+                                    <tbody>
+                                        <!-- first table row -->
+                                        <tr>
+                                            <td class="product-name">
+                                                Product name
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td class="stock-status">
+                                                Stock Status
+                                            </td>
+
+                                            <td class="product-quantity">
+                                                Price/Unit
+                                            </td>
+
+                                            <td class="product-subtotal">
+                                                Total Price
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <!-- End of first table row -->
+
+                                        <!-- tr -->
+                                        <tr class="woocommerce-cart-form__cart-item cart_item">
+                                            <!-- product thumbnail -->
+                                            <td class="product-thumbnail" colspan="4">
+                                                <div class="product-details">
+                                                    <a href="#" class="porduct-image-wrap">
+                                                        <img src="{% static 'img/clients/cart1.png' %}" alt="">
+                                                    </a>
+                                                    <a href="#">Woven Throw Pillow</a>
+                                                </div>
+                                            </td>
+                                            <!-- End of product thumbnail -->
+                                            <td class="instock">In Stock</td>
+                                            <td>$125</td>
+                                            <td><span class="totalprice">$300</span></td>
+
+                                            <!-- product remove -->
+                                            <td class="product-remove">
+                                                <div class="remover-field" >
+                                                    <img src="{% static 'img/icons/remove.svg' %}" class='' alt="">
+                                                </div>
+                                            </td>
+                                            <!--End of  product remove -->
+                                        </tr>
+                                        <!--End of tr -->
+                                    </tbody>
+                                </table>
+                                <!--End of cart table -->
+
+                                <div class="cart-bottom-wrap">
+                                    <div class="row">
+                                        <div class="offset-lg-7 col-lg-4 col-md-4 offset-md-6 col-sm-4 offset-sm-8 col-4 offset-7">
+                                            <!-- shop total wrap -->
+                                            <div class="shop-total-wrap wish-total">
+                                                <table class="shop_table shop_table_responsive">
+                                                    <tbody>
+                                                        <tr class="order-total">
+                                                            <th>
+                                                                Total
+                                                            </th>
+                                                            <td>
+                                                                <span class="woocommerce-Price-amount amount">$100</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- End of shop total wrap -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- cart product wrap -->
+                        </form>
+                    </div>
+                    <!-- woocommerce -->
+                </div>
+            </div>
+        </div>        
+    </section>
+
+   
+{% endblock %}

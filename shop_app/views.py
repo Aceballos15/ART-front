@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Image, Product
 
+from .cart import Cart
 from . import forms 
 # Create your views here.
+
 
 
 class GetProductsView(View): 
@@ -97,3 +99,59 @@ class AdminProductView(View):
             return redirect(to= 'ProductsUsers')
             
         
+        
+class CartView(View): 
+    
+    def get(self, request): 
+        
+        return render(request, 'Cart/CartShopping.html')
+    
+     
+    
+    
+class WishListView(View): 
+    
+    def get(self, request): 
+        return render(request, 'Cart/WishList.html') 
+    
+    
+    
+# Functions Cart 
+
+def AddCartView(request, id):
+    cart = Cart(request)
+    
+    prod= Product.objects.get(id=id)
+    
+    cart.Add(product=prod)
+    
+    return redirect(to= 'cart') 
+
+
+def DeleteCartView(request): 
+    
+    cart = Cart(request)
+    
+    cart.Removecart()
+    
+    return redirect(to= 'cart')
+
+
+def SubstractCartView(request, id): 
+    cart = Cart(request)
+    
+    prod = Product.objects.filter(id=id)
+
+    cart.SubstractProduct(product=prod)
+    
+    return redirect(to= 'Cart')
+
+
+def DeleteItemCartView(request, id):
+    cart = Cart(request)
+    
+    prod = Product.objects.get(id=id)
+    
+    cart.DeleteItemcart(product=prod)
+
+    return redirect(to= 'cart')

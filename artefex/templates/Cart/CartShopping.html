@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Cart {% endblock title %}
+{% block content %}
+
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2 text-white">Cart List<span class="text-white">Shopping</span></h1></div>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <!-- woocommerce -->
+                    <div class="woocommerce">
+                        <form action="#" method="POST" class="woocommerce-cart-form">
+                            <!-- cart product wrap -->
+                            <div class="cart-product-wrap">
+                                <!-- cart table -->
+                                <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+                                    <tbody>
+                                        <!-- first table row -->
+                                        <tr>
+                                            <td class="product-name">
+                                                Product name
+                                            </td>
+                                            <td class="">
+                                                Size
+                                            </td>
+                                            <td class="product-quantity">
+                                                Quantity
+                                            </td>
+                                            <td class="product-quantity">
+                                                Price/Unit
+                                            </td>
+                                            <td class="product-subtotal">
+                                                Total Price
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <!-- End of first table row -->
+                                        {% if request.session.cart.items %}
+                                                <!-- tr -->
+
+                                                {% for Key, Value in request.session.cart.items %}
+                                                
+                                                
+                                                <tr class="woocommerce-cart-form__cart-item cart_item">
+                                                    <!-- product thumbnail -->
+                                                    <td class="product-thumbnail">
+                                                        <div class="product-details">
+                                                            <a href="#" class="porduct-image-wrap">
+                                                                <img style="width: 80px; height:80px;" src="{{ Value.Image }}" alt="">
+                                                            </a>
+                                                            <a href="#">{{Value.Name}}</a>
+                                                        </div>
+                                                    </td>
+                                                    <!-- End of product thumbnail -->
+
+                                                    <!-- Product size -->
+                                                    <td>
+                                                        <div class="product-size">
+                                                            
+                                                            <input type="text" value="L" class="product-size-list">
+                                                        </div>
+                                                    </td>
+                                                    <!--End of Product Size -->
+
+                                                    <!-- product quantity -->
+                                                    <td>
+                                                        <div class="product-quantity">
+                                                            <span class="minus"><img src="{% static 'img/icons/minus.svg' %}" class="svg" alt=""></span>
+                                                            <input type="text" value="{{Value.Quantity}}" class="product-quantity-list">
+                                                            <a href="{% url 'AddCart' Value.Product_id %}">
+                                                            <span class="plus"><img src="{% static 'img/icons/plus.svg' %}" class="svg" alt=""></span>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <!--End of product quantity -->
+
+                                                    <td>${{Value.Price}}</td>
+                                                    <td><span class="totalprice">${{Value.Price}}</span></td>
+
+                                                    <!-- product remove -->
+                                                    <td class="product-remove">
+                                                        <div class="" >
+                                                            <a href="{% url 'DeleteItem' Value.Product_id %}">
+                                                            <img src="{% static 'img/icons/remove.svg' %}" class='' alt="">
+                                                        </a>
+                                                        </div>
+                                                    </td>
+                                                    <!--End of  product remove -->
+                                                </tr>
+                                                <!--End of tr -->
+                                            {% endfor %}
+                                                            
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="5">
+                                                    <div class="alert alert-danger text-center">
+                                                        No hay Productos en el carrito de compras
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        {% endif %}
+                                        
+                                    </tbody>
+                                </table>
+                                <!--End of cart table -->
+
+                                <div class="cart-bottom-wrap">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-5">
+                                            <div class="btn-cupon-wrap">
+                                                <!-- cart shoping button  -->
+                                                <div class="cart-shoping-button">
+                                                    <a href="{% url 'DeleteCart' %}" class="update-cart-btn btn btn-fill-type"><img src="{% static 'img/icons/update.svg' %}" class="svg" alt="">Eliminar Carro</a>
+                                                    <a href="{% url 'shop' %}" class="update-cart-btn btn btn-fill-type">Continue Shopping</a>
+                                                </div>
+                                                <!-- End of cart shoping button  -->
+                                            </div>
+                                        </div>
+                                        <div class="offset-lg-2 col-lg-4 col-md-12">
+                                            <!-- shop total wrap -->
+                                            <div class="shop-total-wrap">
+                                                <table class="shop_table shop_table_responsive">
+                                                    <tbody>
+                                                       
+                                                        <tr class="cart-subtotal">
+                                                            <th>
+                                                                Subtotal
+                                                            </th>
+                                                            <td>
+                                                                ${{Total_Cart}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="order-total">
+                                                            <th>
+                                                                Total: 
+                                                            </th>
+                                                            <td>
+                                                                <span class="woocommerce-Price-amount amount">${{Total_Cart}}</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="wc-proceed-to-checkout">
+                                                    <a href="#" class="update-cart-btn btn btn-fill-type" >Proceed To Checkout</a>
+                                                </div>
+                                            </div>
+                                            <!-- End of shop total wrap -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- cart product wrap -->
+                        </form>
+                    </div>
+                    <!-- woocommerce -->
+                </div>
+            </div>
+        </div>        
+    </section>
+
+{% endblock %}

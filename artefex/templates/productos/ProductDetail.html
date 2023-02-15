@@ -121,7 +121,7 @@
                             <!-- product details btns -->
                             <div class="product-details-btns">
                                 <div class="addto-bag-btn">
-                                    <a href="#" class="btn btn-fill-type">
+                                    <a href="{% url 'AddCart' product.id %}" class="btn btn-fill-type">
                                         <span><img src="{% static 'img/icons/add-bag.svg' %}" alt="" class="svg"></span><span class="d-none d-lg-block mr-0">Add To Cart</span>
                                     </a>
                                 </div>
