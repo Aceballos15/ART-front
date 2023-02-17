@@ -81,18 +81,25 @@
 
                                                     <!-- product quantity -->
                                                     <td>
+                                                        
                                                         <div class="product-quantity">
-                                                            <span class="minus"><img src="{% static 'img/icons/minus.svg' %}" class="svg" alt=""></span>
-                                                            <input type="text" value="{{Value.Quantity}}" class="product-quantity-list">
-                                                            <a href="{% url 'AddCart' Value.Product_id %}">
+                                                            <a href="{% url 'SubstractCart' Value.Product_id Value.Quantity %}">
+                                                                <span class="plus"><img src="{% static 'img/icons/minus.svg' %}" class="svg" alt=""></span>
+                                                                </a>
+                                                            
+                                                            <input disabled type="text" value="{{Value.Quantity}}" class="product-quantity-list" name="quantity">
+                                                            
+                                                            <a href="{% url 'addOne' Value.Product_id Value.Quantity %}">
                                                             <span class="plus"><img src="{% static 'img/icons/plus.svg' %}" class="svg" alt=""></span>
                                                             </a>
+                                                        </form>
                                                         </div>
                                                     </td>
                                                     <!--End of product quantity -->
 
-                                                    <td>${{Value.Price}}</td>
-                                                    <td><span class="totalprice">${{Value.Price}}</span></td>
+                                                    <td>${{Value.precio}}</td>
+                                                    
+                                                    <td><span class="totalprice">${{ Value.Subtotal }}</span></td>
 
                                                     <!-- product remove -->
                                                     <td class="product-remove">

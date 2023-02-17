@@ -6,11 +6,13 @@ def Total_Cart(request):
     if "cart" in request.session: 
         cart = request.session["cart"]
         for Key, Value in cart.items():
+            price = Value["Price"] * 1000
             
-            total = total + ((float(Value["Price"])*1000) * Value["Quantity"])
-            total = format(round(total), ',')
+            total = float(total) + ( price * Value["Quantity"] )  
+            total = round(total)
             
-    return { "Total_Cart": total }
+            
+    return { "Total_Cart": format(total, ',') }
 
 
 

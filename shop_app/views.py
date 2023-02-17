@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Image, Product
+from django.urls import reverse 
 
 from .cart import Cart
 from . import forms 
@@ -91,13 +92,16 @@ class AdminProductView(View):
         return render(request, 'productos/AdminProductDetail.html', {'Products': products, 'form': formEdit})
     
     def post(self, request, product): 
-        ProductEdit = get_object_or_404(Product, id=product)
+        ProductEdit = Product.objects.get(id=product)
         form= forms.AddProductForm(data=request.POST, instance=ProductEdit, files=request.FILES)
         
         if form.is_valid(): 
-            form.save()
-            return redirect(to= 'ProductsUsers')
+            form.save(commit=False)
+            form.Artisan = request.user.id
             
+            form.save()
+            
+            return redirect(to = 'shop')
         
         
 class CartView(View): 
@@ -120,31 +124,25 @@ class WishListView(View):
 
 def AddCartView(request, id):
     cart = Cart(request)
-    
     prod= Product.objects.get(id=id)
-    
     cart.Add(product=prod)
     
     return redirect(to= 'cart') 
 
 
 def DeleteCartView(request): 
-    
     cart = Cart(request)
-    
     cart.Removecart()
     
     return redirect(to= 'cart')
 
 
-def SubstractCartView(request, id): 
+def SubstractCartView(request, id, quantity): 
     cart = Cart(request)
+    prod = Product.objects.get(id=id)
+    cart.SubstractProduct(product=prod, quantity=quantity)
     
-    prod = Product.objects.filter(id=id)
-
-    cart.SubstractProduct(product=prod)
-    
-    return redirect(to= 'Cart')
+    return redirect(to= 'cart')
 
 
 def DeleteItemCartView(request, id):
@@ -155,3 +153,16 @@ def DeleteItemCartView(request, id):
     cart.DeleteItemcart(product=prod)
 
     return redirect(to= 'cart')
+
+
+def AddItemCartView(request, id, quant):
+    
+    cart = Cart(request)
+    
+    prod = Product.objects.get(id=id)
+    
+    cart.AddOne(product=prod, quantity=quant)
+    
+    return redirect(to= 'cart')
+
+

@@ -149,26 +149,7 @@ Modal Editar producto -->
             </div> 
             <div class="quick-view-content-inner">
                 <div class="row align-items-center">
-                    <div class="col-lg-7">
-                        <!-- Start shop product slider -->
-                        <div class="shop-product-slider-wrap">
-                            <!-- Start shop slider top side -->
-                             <div class="swiper-container quick-product-gallery">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide" style="max-height: 1200px;">
-                                        {% for img in product.Images.all %}
-                                        <img class='' src="{{ img.Image.url }}" alt="" data-rjs="2" />
-                                        
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                             <!-- End of shop slider top side -->
-                        </div>
-                        <!-- End of shop product slider -->
-                    </div>
-
-                    <div class="col-lg-5">
+                    <div class="col-lg-10 mx-5">
                         <!-- product details inner -->
                         <div class="product-details-inner">
                             <form action="#" method="Post" novalidate enctype="multipart/form-data">

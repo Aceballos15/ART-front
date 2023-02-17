@@ -59,9 +59,6 @@ class Image(models.Model):
     Image= models.ImageField(upload_to= 'Products', blank=True, null=True)
     
     
-    def __str(self): 
-        return self.Image
-    
         
       
 class Coment(models.Model):
