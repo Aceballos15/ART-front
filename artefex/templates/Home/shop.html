@@ -1,598 +1,598 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} 
 
-{% block title %}
+{% block title %} Tienda {% endblock title %} 
 
-{% endblock title %}
 {% block content %}
 
-    <!-- page title -->
-    <section class="page-title-inner" data-bg-img="{% static 'img/banner/slider-01.png' %}">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- page title inner -->
-                    <div class="page-title-wrap">
-                        <div class="page-title-heading"><h1 class="h2" style="color: white">Shop Page<span style="color: white;">Shopping</span></h1></div>
-                    </div>
-                    <!-- End of page title inner -->
-                </div>
-            </div>
+<!-- page title -->
+<section
+  class="page-title-inner"
+  data-bg-img="{% static 'img/banner/slider-01.png' %}"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- page title inner -->
+        <div class="page-title-wrap">
+          <div class="page-title-heading">
+            <h1 class="h2" style="color: white">
+              Shop Page<span style="color: white">Shopping</span>
+            </h1>
+          </div>
         </div>
-    </section>
-    <!-- End of page title -->
-    
-    <!-- product shop wrapper -->
-    <section class="pt-100 pb-40">
-        <div class="container">
-            <div class="row position-relative">
-                <div class="col-lg-9 position-static">
-                    <!-- shop toolbar wrap -->
-                    <div class="shop-toolbar-wrap">
-                        <div class="shop-toolbar-filter">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                     <!--Single sidebar widget -->
-                                    <form action="#" method="post">
-                                        <input type="text" placeholder="Buscar" class="theme-input-style" required>
-                                    </form>
-                                    <!--End of Single sidebar widget -->
-                                </div>
-                                <div class="col-md-6 position-static">
-                                    <!-- product filter inner -->
-                                    <div class="product-filter-inner mx-2">
-                                        <div class="newest-product">
-                                            <a href="#" id="dropdownnewest" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sort-amount-desc"></i><span>Ver <span class="sort-by"></span>Por</span><i class="fa fa-angle-down"></i></a>
-                                            <ul class="newest-product-option dropdown-menu-right dropdown-menu" aria-labelledby="dropdownnewest">
-                                                <li><a href="#">Default</a></li>
-                                                <li><a href="#">Popularity</a></li>
-                                                <li><a href="#">Rating</a></li>
-                                                <li><a href="#">Newest</a></li>
-                                                <li><a href="#">Price: Low to Hogh</a></li>
-                                                <li><a href="#">Price: High to Low</a></li>
-                                            </ul>
-                                        </div>
-                                            
-                                            <div class="newest-product">
-                                                <a href="#" id="dropdownnewest" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-filter" aria-hidden="true"></i><span>Filtrar <span class="sort-by">por</span></span><i class="fa fa-angle-down"></i></a>
-                                                <ul class="newest-product-option dropdown-menu-right dropdown-menu" aria-labelledby="dropdownnewest">
-                                                    <li>
-                                                        <a href="#">Categoria</a>
-                                                        <ul class="dropdown-menu-right">
-                                                            <li><a href="#">Ilustraciones</a></li>
-                                                            <li><a href="#">Cuadros</a></li>
-                                                            <li><a href="#">Decoración</a></li>
-                                                            <li><a href="#">Tejidos</a></li>
-                                                            <li><a href="#">Regalos</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Precio</a>
-                                                        <ul class="price-list">
-                                                            <li><a href="#" class="active">$0.000-$50.000</a></li>
-                                                            <li><a href="#">$50.000-$100.00</a></li>
-                                                            <li><a href="#">$100.000-$300.000</a></li>
-                                                            <li><a href="#">$300.000+</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Medidas</a>
-                                                        <ul class="size-list">
-                                                            <li><a href="#" class="active"><span class="product-size">L</span></a></li>
-                                                            <li><a href="#"><span class="product-size">M</span></a></li>
-                                                            <li><a href="#"><span class="product-size">S</span></a></li>
-                                                            <li><a href="#"><span class="product-size">30</span></a></li>
-                                                            <li><a href="#"><span class="product-size">40</span></a></li>
-                                                        </ul> 
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        <!-- End of sort by newest -->
-                                        <!--End of product filter -->
-                                    </div>
-                                    <!-- product filter inner -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of shop toolbar wrap -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="tab-content shop-tab-content">
-                                <div class="tab-pane fade show active" role="tabpanel" id="fourcol" aria-labelledby="nav-four-col">
-                                    <div class="row">
-                                        {% for product in  Products %}
-                                        <div class="col-md-6 col-sm-12 col-lg-4 col-xl-3">
-                                            <!-- single product -->
-                                            <div class="single-product">
-                                                <div class="product-item">
-                                                    <div class="product-thumb">
-                                                        <!-- Product Image -->
-                                                        <div class="product-image">
-                                                            <a href="{% url 'ProductDetail' product.id %}">
+        <!-- End of page title inner -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of page title -->
 
-                                                                    <img class='normal-state' data-rjs="2" src="{{ product.PrincipalImage.url }}" alt="" style= "width: 250px; height: 300px">
-                                                                    <img class='hover-state' data-rjs="2" src="{{product.PrincipalImage.url}}" alt="" style= "width: 250px; height: 300px">
+<!-- product shop wrapper -->
+<section class="pt-100 pb-40">
+  <div class="container">
+    <div class="row position-relative">
+      <div class="col-lg-9 position-static">
+        <!-- shop toolbar wrap -->
+        <div class="shop-toolbar-wrap">
+          <div class="shop-toolbar-filter">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <!--Single sidebar widget -->
+                <form action="#" method="post">
+                  <input
+                    type="text"
+                    placeholder="Buscar"
+                    class="theme-input-style"
+                    required
+                  />
+                </form>
+                <!--End of Single sidebar widget -->
+              </div>
+              <div class="col-md-6 position-static">
+                <!-- product filter inner -->
+                <div class="product-filter-inner mx-2">
+                  <div class="newest-product">
+                    <a
+                      href="#"
+                      id="dropdownnewest"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      ><i class="fa fa-sort-amount-desc"></i
+                      ><span>Ver <span class="sort-by"></span>Por</span
+                      ><i class="fa fa-angle-down"></i
+                    ></a>
+                    <ul
+                      class="newest-product-option dropdown-menu-right dropdown-menu"
+                      aria-labelledby="dropdownnewest"
+                    >
+                      <li><a href="#">Default</a></li>
+                      <li><a href="#">Popularity</a></li>
+                      <li><a href="#">Rating</a></li>
+                      <li><a href="#">Newest</a></li>
+                      <li><a href="#">Price: Low to Hogh</a></li>
+                      <li><a href="#">Price: High to Low</a></li>
+                    </ul>
+                  </div>
 
-                                                            </a>
-                                                        </div>
-                                                        <!-- End of Product Image -->
-                        
-                                                        <!-- product button -->
-                                                        <div class="product-buttons">
-                                                            <div class="quick-btn">
-                                                                <div class="quick-icon-btn">
-                                                                    <a href="#" class="quick_view">
-                                                                        <span class="product-icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
-                                                                        <span class="icon-title">Ver más</span>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            
-                        
-                                                            <div class="addto-cart-btn">
-                                                                <div class="addto-icon-btn">
-                                                                    <a href="#">
-                                                                        <span class="product-icon"><img src="{% static 'img/icons/add-bag.svg' %}" alt="" class="svg"></span>
-                                                                        <span class="icon-title">Añadir al carrito</span>
-                                                                    </a>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                            <div class="wishlist-btn">
-                                                                <div class="wishlist-icon-btn">
-                                                                    <a href="#">
-                                                                    <span class="product-icon"><img src="{% static 'img/icons/wishlist.svg' %}" alt="" class="svg"></span>
-                                                                        <span class="icon-title">Mi lista de deseos</span>
-                                                                    </a>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                        <!-- End of product button -->
-                        
-                                                        <!-- product title -->
-                                                        <div class="product-title">
-                                                            <h4><a href="shop-details.html">{{ product.Name }}</a></h4>
-                                                        </div>
-                                                        <!-- end of product title -->
-                                                    </div>
-                        
-                                                    <!-- product info -->
-                                                    <div class="product-info">
-                                                        <div class="product-price">
-                                                            <h5>
-                                                                {% if product.Discount %}
-                                                                    ${{product.Discount}}
-                                                                {% else %}
-                                                                    ${{product.Price}}
-                                                                {% endif %}
-                                                                
-
-                                                            </h5>
-                                                        </div>
-                                                        <div class="product-rating">
-                                                            <div class="star-rating">
-                                                                <span></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                        <!-- End of product info -->
-                                                </div>
-                                            </div>
-                                            <!-- End of single product -->
-                                        </div>
-                                        <div class="modal-quickview-container">
-                                            <div class="quick-view-content-wrap">
-                                                <div class="modal-window-overlay"></div>
-                                                <div class="quick-view-content">
-                                                    <div class="modal-window-close">
-                                                        <img src="{% static 'img/icons/close-button.svg' %}" class="svg" alt="">
-                                                    </div> 
-                                                    <div class="quick-view-content-inner">
-                                                        <div class="row align-items-center">
-                                                            <div class="col-lg-7">
-                                                                <!-- Start shop product slider -->
-                                                                <div class="shop-product-slider-wrap">
-                                                                    <!-- Start shop slider top side -->
-                                                                     <div class="swiper-container quick-product-gallery">
-                                                                        <div class="swiper-wrapper">
-                                                                            <div class="swiper-slide">
-                                                                                <img class='' src="{{product.PrincipalImage.url}}" alt="" data-rjs="2" />
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                     <!-- End of shop slider top side -->
-                                                                </div>
-                                                                <!-- End of shop product slider -->
-                                                            </div>
-                                    
-                                                            <div class="col-lg-5">
-                                                                <!-- product details inner -->
-                                                                <div class="product-details-inner">
-                                                                    <!-- product info -->
-                                                                    <div class="product-info">
-                                                                        <div class="product-rating">
-                                                                            <div class="star-rating">
-                                                                                <span></span>
-                                                                            </div>
-                                                                        </div>
-                                    
-                                                                        <!-- product title -->
-                                                                        <div class="product-title">
-                                                                            <h2><a href="shop-details.html">{{product.Name}}</a></h2>
-                                                                        </div>
-                                                                        <!-- end of product title -->
-                                    
-                                                                         <div class="product-price">
-                                                                            {% if product.Discount %}
-                                                                                <h3 class="new-price">${{product.Discount}}</h3>
-                                                                                <h5 class="old-price">${{product.Price}}</h5>
-
-                                                                               {% else %} 
-                                                                               <h3 class="new-price">${{product.Price}}</h3>
-                                                                            {% endif %}
-                                                                            
-                                                                        </div>
-                                    
-                                                                         <div class="product-description">
-                                                                             <p>{{product.Description}}.</p>
-                                                                         </div>
-                                    
-                                                                        <!-- list product group -->
-                                                                        <div class="list-product-group">
-                                                                            <ul class="mb-0 list-unstyled">
-                                                                                <li class="size-group group">
-                                                                                    <span class="list-heading">size:</span>
-                                                                                    <ul class="size-list mb-0 list-unstyled">
-                                                                                        <li><a href="#" class="product-size"><span>L</span></a></li>
-                                                                                        <li><a href="#" class="active product-size"><span>M</span></a></li>
-                                                                                        <li><a href="#" class="product-size"><span>S</span></a></li>
-                                                                                    </ul>
-                                                                                </li>
-                                                                                <li class="quantity-group group">
-                                                                                    <span class="list-heading">Disponibilidad:</span>
-                                                                                    <div class="product-quantity">
-                                                                                        <input disabled type="text" value="{{product.Stock}}" class="product-quantity-list product-size">
-                                                                                    </div>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <!-- End of list product group -->
-                                    
-                                                                        <!-- product details btns -->
-                                                                        <div class="product-details-btns">
-                                                                            <div class="addto-bag-btn">
-                                                                                <a href="{% url 'ProductDetail' product.id %}" class="btn btn-fill-type">
-                                                                                    <span></span><span class="d-none d-lg-block mr-0">Ver más detalles</span>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- product details btns -->
-                                    
-                                    
-                                                                        <!-- product mata -->
-                                                                        <div class="product_meta item-product-meta-info">
-                                                                            <span class="sku_wrapper">
-                                                                                <label>
-                                                                                    SKU:
-                                                                                    <span>{{user.username}}</span>
-                                                                                </label>
-                                                                            </span>
-                                                                            <span class="posted_in">
-                                                                                <span class="meta-item-list">
-                                                                                    <a href="#">{{product.Category}}</a>
-                                                                                </span>
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- End of product mata -->
-                                                                    </div>
-                                                                     <!-- End of product info -->
-                                                                </div>
-                                                                <!-- End of product details inner -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> 
-                                        <!--End of Modal quick view-->
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <div class="row"> 
-                    <div class="col-12">
-                        <!-- blog pagination -->
-                        <div class="blog-pagination-wrap"> 
-                            <ul class="pagination blog-pagination list-unstyled"> 
-                                <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                <li><a href="#">01</a> </li>
-                                <li class="active"><a href="#">02</a></li>
-                                <li><a href="#">03</a></li>
-                                <li><a href="#">04</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul> 
-                        </div>
-                        <!-- End of blog pagination -->
-                    </div>
+                  <div class="newest-product">
+                    <a
+                      href="#"
+                      id="dropdownnewest"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      ><i class="fa fa-filter" aria-hidden="true"></i
+                      ><span>Filtrar <span class="sort-by">por</span></span
+                      ><i class="fa fa-angle-down"></i
+                    ></a>
+                    <ul
+                      class="newest-product-option dropdown-menu-right dropdown-menu"
+                      aria-labelledby="dropdownnewest"
+                    >
+                      <li>
+                        <a href="#">Categoria</a>
+                        <ul class="dropdown-menu-right">
+                          <li>
+                            <a href="{% url 'FilterCategory' 1 %}">artesania indigena </a>
+                          </li>
+                          <li>
+                            <a href="{% url 'FilterCategory' 2 %}">Pinturas</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'FilterCategory' 3 %}">Bordados</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'FilterCategory' 4 %}">Tejidos</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'FilterCategory' 5 %}">Carpinteria</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'FilterCategory' 6 %}">Alfareria</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'FilterCategory' 7 %}">Artesanis Reciclada</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'FilterCategory' 8 %}">Decoracion, Regalos y más</a>
+                          </li>
+                          <li>
+                            <a href="{% url 'FilterCategory' 9 %}">Otras</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">Precio</a>
+                        <ul class="price-list">
+                          <li><a href="#" class="active">$0.000-$50.000</a></li>
+                          <li><a href="#">$50.000-$100.00</a></li>
+                          <li><a href="#">$100.000-$300.000</a></li>
+                          <li><a href="#">$300.000+</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">Medidas</a>
+                        <ul class="size-list">
+                          <li>
+                            <a href="#" class="active"
+                              ><span class="product-size">L</span></a
+                            >
+                          </li>
+                          <li>
+                            <a href="#"><span class="product-size">M</span></a>
+                          </li>
+                          <li>
+                            <a href="#"><span class="product-size">S</span></a>
+                          </li>
+                          <li>
+                            <a href="#"><span class="product-size">30</span></a>
+                          </li>
+                          <li>
+                            <a href="#"><span class="product-size">40</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- End of sort by newest -->
+                  <!--End of product filter -->
                 </div>
+                <!-- product filter inner -->
+              </div>
             </div>
-                <div class="col-lg-3">
-                    <aside>
-                        <br>
-                        <br>
-                        <!--Single sidebar widget -->
-                        <div class="single-sidebar-widget mb-60">
-                            <!-- widget title -->
-                            <div class="widget-title">
-                                <h4>New Product</h4>
-                            </div>
-                            <!--End of widget title -->
-                            <div class="new-product-item">
-                                <ul class="list-unstyled mb-0">
-                                    <!-- single new product -->
-                                    <li>
-                                        <div class="new-product-wrap media">
-                                            <div class="new-produt-image">
-                                                <img src="{% static 'img/shop/img1.png" alt="">
-                                            </div>
-                                            <div class="product-img-caption media-body">
-                                                <h5><a href="#">Girls' Zipper Jumpsuit</a></h5>
-                                                <h6>$32</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!--End of single new product -->
-
-                                    <!-- single new product -->
-                                    <li>
-                                        <div class="new-product-wrap media">
-                                            <div class="new-produt-image">
-                                                <img src="assets/img/shop/img2.png" alt="">
-                                            </div>
-                                            <div class="product-img-caption media-body">
-                                                <h5><a href="#">Pokemon Kid's Wrist Watch</a></h5>
-                                                <h6>$42</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!--End of single new product -->
-
-                                    <!-- single new product -->
-                                    <li>
-                                        <div class="new-product-wrap media">
-                                            <div class="new-produt-image">
-                                                <img src="assets/img/shop/img3.png" alt="">
-                                            </div>
-                                            <div class="product-img-caption media-body">
-                                                <h5><a href="#">Stick Lamp Essentials</a></h5>
-                                                <h6>$22</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!--End of single new product -->
-                                </ul>
-                            </div>
-                        </div>
-                        <!--End of Single sidebar widget -->
-
-                        <!--Single sidebar widget -->
-                        <div class="single-sidebar-widget mb-60">
-                            <!-- widget title -->
-                            <div class="widget-title">
-                                <h4>Recent Review</h4>
-                            </div>
-                            <!--End of widget title -->
-                            <div class="new-product-item">
-                                <ul class="list-unstyled mb-0">
-                                    <!-- single recent product -->
-                                    <li>
-                                        <div class="recent-product-wrap media">
-                                            <div class="recent-produt-image">
-                                                <img src="assets/img/shop/img4.png" alt="">
-                                            </div>
-                                            <div class="product-img-caption media-body">
-                                                <h5><a href="#">Leather Mini Backpack</a></h5>
-                                                <h6>$32</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!--End of single recent product -->
-
-                                    <!-- single recent product -->
-                                    <li>
-                                        <div class="recent-product-wrap media">
-                                            <div class="recent-produt-image">
-                                                <img src="assets/img/shop/img5.png" alt="">
-                                            </div>
-                                            <div class="product-img-caption media-body">
-                                                <h5><a href="#">Double Zip Pouch Clutch</a></h5>
-                                                <h6>$42</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!--End of single recent product -->
-
-                                    <!-- single recent product -->
-                                    <li>
-                                        <div class="recent-product-wrap media">
-                                            <div class="recent-produt-image">
-                                                <img src="assets/img/shop/img6.png" alt="">
-                                            </div>
-                                            <div class="product-img-caption media-body">
-                                                <h5><a href="#">Copley Dining Chair</a></h5>
-                                                <h6>$22</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!--End of single recent product -->
-                                </ul>
-                            </div>
-                        </div>
-                        <!--End of Single sidebar widget -->
-                    </aside>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-    <!-- End of product shop wrapper -->
+        <!-- End of shop toolbar wrap -->
 
-  <!-- footer area -->
-  <footer class="pattern footer-type1 pt-30">
-        <div class="footer-top">
-            <div class="container">
+        {% if Products %}
+        <div class="row">
+          <div class="col-12">
+            <div class="tab-content shop-tab-content">
+              <div
+                class="tab-pane fade show active"
+                role="tabpanel"
+                id="fourcol"
+                aria-labelledby="nav-four-col"
+              >
                 <div class="row">
-                    <!-- footer widget -->
-                    <div class="col-md-6 col-lg-4 col-sm-6">
-                        <div class="footer-widget">
-                            <div class="footer-logo">
-                                <a href="index.html"><img src="assets/img/ftr-logo.png" alt=""></a>
-                            </div>
-                            <div class="footer-about-text">
-                                <p>These cases are perfectly simple and easy to distin guish. In a free hour, when our power of choice is untram melled and when nothing prevents our being able to be circumstances and owing claim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of footer widget -->
+                {% for product in Products %}
+                  <div class="col-md-6 col-sm-12 col-lg-4 col-xl-3">
+                    <!-- single product -->
+                    <div class="single-product">
+                      <div class="product-item">
+                        <div class="product-thumb">
+                          <!-- Product Image -->
+                          <div class="product-image">
+                            <a href="{% url 'ProductDetail' product.id %}">
+                              <img
+                                class="normal-state"
+                                data-rjs="2"
+                                src="{{ product.PrincipalImage.url }}"
+                                alt=""
+                                style="width: 250px; height: 300px"
+                              />
+                              <img
+                                class="hover-state"
+                                data-rjs="2"
+                                src="{{product.PrincipalImage.url}}"
+                                alt=""
+                                style="width: 250px; height: 300px"
+                              />
+                            </a>
+                          </div>
+                          <!-- End of Product Image -->
 
-                    <!-- footer widget -->
-                    <div class="col-md-6 col-lg-2 col-sm-6">
-                        <div class="footer-widget">
-                            <!-- footer Widget heading -->
-                            <div class="footer-header">
-                                <h5>About kinen</h5>
+                          <!-- product button -->
+                          <div class="product-buttons">
+                            <div class="quick-btn">
+                              <div class="quick-icon-btn">
+                                <a href="#" class="quick_view">
+                                  <span class="product-icon"
+                                    ><i class="fa fa-eye" aria-hidden="true"></i
+                                  ></span>
+                                  <span class="icon-title">Ver más</span>
+                                </a>
+                              </div>
                             </div>
-                            <!--End of footer Widget heading -->
-                            <div class="footer-links">
-                                <ul class="links-list list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">About Our Company</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">License</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Policy Privacy</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Terms of use</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of footer widget -->
 
-                    <!-- footer widget -->
-                    <div class="col-md-6 col-lg-2 col-sm-6">
-                        <div class="footer-widget">
-                            <!-- footer Widget heading -->
-                            <div class="footer-header">
-                                <h5>Useful Links</h5>
+                            <div class="addto-cart-btn">
+                              <div class="addto-icon-btn">
+                                <a href="{% url 'AddCart' product.id %}">
+                                  <span class="product-icon"
+                                    ><img
+                                      src="{% static 'img/icons/add-bag.svg' %}"
+                                      alt=""
+                                      class="svg"
+                                  /></span>
+                                  <span class="icon-title"
+                                    >Añadir al carrito</span
+                                  >
+                                </a>
+                              </div>
                             </div>
-                            <!--End of footer Widget heading -->
-                            <div class="footer-links">
-                                <ul class="links-list list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">Top Sellers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Featured Items</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Discount Shop</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">New Arrivals</a>
-                                    </li>
-                                </ul>
+                            <div class="wishlist-btn">
+                              <div class="wishlist-icon-btn">
+                                <a href="#">
+                                  <span class="product-icon"
+                                    ><img
+                                      src="{% static 'img/icons/wishlist.svg' %}"
+                                      alt=""
+                                      class="svg"
+                                  /></span>
+                                  <span class="icon-title"
+                                    >Mi lista de deseos</span
+                                  >
+                                </a>
+                              </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- End of footer widget -->
+                          </div>
+                          <!-- End of product button -->
 
-                    <!-- footer widget -->
-                    <div class="col-md-6 col-lg-4 col-sm-6">
-                        <div class="footer-widget">
-                            <!-- footer Widget heading -->
-                            <div class="footer-header">
-                                <h5>Useful Links</h5>
-                            </div>
-                            <!--End of footer Widget heading -->
-                            <div class="footer-contact-wrap">
-                                <ul class="footer-contact-list list-unstyled mb-0">
-                                    <li>
-                                        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                        1622 Colins Street West, Strawberry (Le), ITALY
-                                    </li>
-                                    <li>
-                                        <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                                        <a href="info@emailname.com">Email: info@emailname.com</a>
-                                    </li>
-                                    <li>
-                                        <span><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                        <a href="+006543219874">Phone: +00 654 321 9874</a>
-                                    </li>
-                                    <li>
-                                        <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                                        Monday - Saturday:9:00 - 18:00 pm
-                                    </li>
-                                </ul>
-                            </div>
+                          <!-- product title -->
+                          <div class="product-title">
+                            <h4>
+                              <a href="shop-details.html">{{ product.Name }}</a>
+                            </h4>
+                          </div>
+                          <!-- end of product title -->
                         </div>
+
+                        <!-- product info -->
+                        <div class="product-info">
+                          <div class="product-price">
+                            <h5>
+                              {% if product.Discount %} 
+                                ${{product.Discount}} 
+                              {% else %} 
+                                ${{product.Price}} 
+                              {% endif %}
+                            </h5>
+                          </div>
+                          <div class="product-rating">
+                            <div class="star-rating">
+                              <span></span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End of product info -->
+                      </div>
                     </div>
-                    <!-- End of footer widget -->
+                    <!-- End of single product -->
+                  </div>
+                  <div class="modal-quickview-container">
+                    <div class="quick-view-content-wrap">
+                      <div class="modal-window-overlay"></div>
+                      <div class="quick-view-content">
+                        <div class="modal-window-close">
+                          <img
+                            src="{% static 'img/icons/close-button.svg' %}"
+                            class="svg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="quick-view-content-inner">
+                          <div class="row align-items-center">
+                            <div class="col-lg-7">
+                              <!-- Start shop product slider -->
+                              <div class="shop-product-slider-wrap">
+                                <!-- Start shop slider top side -->
+                                <div
+                                  class="swiper-container quick-product-gallery"
+                                >
+                                  <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                      <img
+                                        class=""
+                                        src="{{product.PrincipalImage.url}}"
+                                        alt=""
+                                        data-rjs="2"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- End of shop slider top side -->
+                              </div>
+                              <!-- End of shop product slider -->
+                            </div>
+
+                            <div class="col-lg-5">
+                              <!-- product details inner -->
+                              <div class="product-details-inner">
+                                <!-- product info -->
+                                <div class="product-info">
+                                  <div class="product-rating">
+                                    <div class="star-rating">
+                                      <span></span>
+                                    </div>
+                                  </div>
+
+                                  <!-- product title -->
+                                  <div class="product-title">
+                                    <h2>
+                                      <a href="shop-details.html"
+                                        >{{product.Name}}</a
+                                      >
+                                    </h2>
+                                  </div>
+                                  <!-- end of product title -->
+
+                                  <div class="product-price">
+                                    {% if product.Discount %}
+                                    <h3 class="new-price">
+                                      ${{product.Discount}}
+                                    </h3>
+                                    <h5 class="old-price">
+                                      ${{product.Price}}
+                                    </h5>
+
+                                    {% else %}
+                                    <h3 class="new-price">
+                                      ${{product.Price}}
+                                    </h3>
+                                    {% endif %}
+                                  </div>
+
+                                  <div class="product-description">
+                                    <p>{{product.Description}}.</p>
+                                  </div>
+
+                                  <!-- list product group -->
+                                  <div class="list-product-group">
+                                    <ul class="mb-0 list-unstyled">
+                                      <li class="size-group group">
+                                        <span class="list-heading">size:</span>
+                                        <ul
+                                          class="size-list mb-0 list-unstyled"
+                                        >
+                                          <li>
+                                            <a href="#" class="product-size"
+                                              ><span>L</span></a
+                                            >
+                                          </li>
+                                          <li>
+                                            <a
+                                              href="#"
+                                              class="active product-size"
+                                              ><span>M</span></a
+                                            >
+                                          </li>
+                                          <li>
+                                            <a href="#" class="product-size"
+                                              ><span>S</span></a
+                                            >
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <li class="quantity-group group">
+                                        <span class="list-heading"
+                                          >Disponibilidad:</span
+                                        >
+                                        <div class="product-quantity">
+                                          <input
+                                            disabled
+                                            type="text"
+                                            value="{{product.Stock}}"
+                                            class="product-quantity-list product-size"
+                                          />
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <!-- End of list product group -->
+
+                                  <!-- product details btns -->
+                                  <div class="product-details-btns">
+                                    <div class="addto-bag-btn">
+                                      <a
+                                        href="{% url 'ProductDetail' product.id %}"
+                                        class="btn btn-fill-type"
+                                      >
+                                        <span></span
+                                        ><span class="d-none d-lg-block mr-0"
+                                          >Ver más detalles</span
+                                        >
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <!-- product details btns -->
+
+                                  <!-- product mata -->
+                                  <div
+                                    class="product_meta item-product-meta-info"
+                                  >
+                                    <span class="sku_wrapper">
+                                      <label>
+                                        SKU:
+                                        <span>{{user.username}}</span>
+                                      </label>
+                                    </span>
+                                    <span class="posted_in">
+                                      <span class="meta-item-list">
+                                        <a href="#">{{product.Category}}</a>
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <!-- End of product mata -->
+                                </div>
+                                <!-- End of product info -->
+                              </div>
+                              <!-- End of product details inner -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--End of Modal quick view-->
+                  {% endfor %}
+                  
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="footer-bottom-wrap">
-                            <!-- copyright text -->
-                            <div class="copyright-text">
-                                <p>© 2018 <a href="#">ThemeLooks</a> All rights reserved</p>
-                            </div>
-                            <!-- End of copyright text -->
 
-                            <!-- tarms and condition -->
-                            <div class="trams-conditaion">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#">License</a></li>
-                                    <li><a href="#">Policy Privacy</a></li>
-                                    <li><a href="#">Terms of use</a></li>
-                                </ul>
-                            </div>
-                            <!-- End of tarms and condition -->
-                        </div>
+        {% else %}
+  
+        <div class="row my-5">
+          <div class="col-12">
+            <div class="error-inner-tex text-center type2">
+              <span>No hay resultados para está busqueda</span>
+              <h1 style= "color: #ff7353">Productos no encontrados </h1>
+              <a href="{% url 'shop' %}" class="btn bg-dark" >Regresar a la tienda</a>
+          </div>
+          <!-- error inner text -->
+              </div>
+            </div>
 
+            {% endif %}
+        <div class="row">
+          <div class="col-12">
+            <!-- blog pagination -->
+            <div class="blog-pagination-wrap">
+              <ul class="pagination blog-pagination list-unstyled">
+                <li class="disabled">
+                  <a href="#"><i class="fa fa-angle-left"></i></a>
+                </li>
+                <li><a href="#">01</a></li>
+                <li class="active"><a href="#">02</a></li>
+                <li><a href="#">03</a></li>
+                <li><a href="#">04</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-right"></i></a>
+                </li>
+              </ul>
+            </div>
+            <!-- End of blog pagination -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <aside>
+          <br />
+          <br />
+          <!--Single sidebar widget -->
+          <div class="single-sidebar-widget mb-60">
+            <!-- widget title -->
+            <div class="widget-title">
+              <h4>New Product</h4>
+            </div>
+            <!--End of widget title -->
+            <div class="new-product-item">
+              <ul class="list-unstyled mb-0">
+                <!-- single new product -->
+                {% for product in NewProducts %}
+
+                <li>
+                  <div class="new-product-wrap media">
+                    <div class="new-produt-image">
+                      <img src="{{product.PrincipalImage.url}}" alt="" />
                     </div>
-                </div>
+                    <div class="product-img-caption media-body">
+                      <h5>
+                        <a href="{% url 'ProductDetail' product.id %}"
+                          >{{ product.Name }}</a
+                        >
+                      </h5>
+
+                      {% if product.Discount %}
+                        <h6>${{product.Discount}}</h6>
+                      {% else %}
+                        <h6>${{product.Price}}</h6>
+                      {% endif %}
+                    </div>
+                  </div>
+                </li>
+                <!--End of single new product -->
+                {% endfor %}
+                <!-- single new product -->
+              </ul>
             </div>
-        </div>
-    </footer>
-    <!-- End of footer area -->
-    
-    <!-- back to top -->
-    <div class="back-to-top">
-            <a href="#">
-                <div class="back-toop-tooltip"><span>Back To Top</span></div>
-                <div class="top-array"></div>
-                <div class="top-line"></div>
-            </a>
-        </div>
-        <!-- back to top -->
+          </div>
+          <!--End of Single sidebar widget -->
 
-    
-        <!-- Modal quick view-->
-       
-    
-      
+          <!--Single sidebar widget -->
+          <div class="single-sidebar-widget mb-60">
+            <!-- widget title -->
+            <div class="widget-title">
+              <h4>Recent Review</h4>
+            </div>
+            <!--End of widget title -->
+            <div class="new-product-item">
+              <ul class="list-unstyled mb-0">
+                <!-- single recent product -->
+                <li>
+                  <div class="recent-product-wrap media">
+                    <div class="recent-produt-image">
+                      <img src="assets/img/shop/img4.png" alt="" />
+                    </div>
+                    <div class="product-img-caption media-body">
+                      <h5><a href="#">Leather Mini Backpack</a></h5>
+                      <h6>$32</h6>
+                    </div>
+                  </div>
+                </li>
+                <!--End of single recent product -->
 
+                <!-- single recent product -->
+                <li>
+                  <div class="recent-product-wrap media">
+                    <div class="recent-produt-image">
+                      <img src="assets/img/shop/img5.png" alt="" />
+                    </div>
+                    <div class="product-img-caption media-body">
+                      <h5><a href="#">Double Zip Pouch Clutch</a></h5>
+                      <h6>$42</h6>
+                    </div>
+                  </div>
+                </li>
+                <!--End of single recent product -->
 
+                <!-- single recent product -->
+                <li>
+                  <div class="recent-product-wrap media">
+                    <div class="recent-produt-image">
+                      <img src="assets/img/shop/img6.png" alt="" />
+                    </div>
+                    <div class="product-img-caption media-body">
+                      <h5><a href="#">Copley Dining Chair</a></h5>
+                      <h6>$22</h6>
+                    </div>
+                  </div>
+                </li>
+                <!--End of single recent product -->
+              </ul>
+            </div>
+          </div>
+          <!--End of Single sidebar widget -->
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of product shop wrapper -->
 
 {% endblock %}

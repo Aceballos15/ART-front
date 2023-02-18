@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('contact/', views.ContactView.as_view(), name='contact'),
+    path('about', views.AboutView, name='about'),
     
     #login and register urls
     path('', include('authentication.urls')),

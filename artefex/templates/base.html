@@ -129,42 +129,42 @@
                           <a href="#">Categorias</a>
                           <ul>
                             <li>
-                              <a href="categories-page1.html">artesania indigena </a>
+                              <a href="{% url 'FilterCategory' 1 %}">artesania indigena </a>
                             </li>
                             <li>
-                              <a href="categories-page2.html">Pinturas</a>
+                              <a href="{% url 'FilterCategory' 2 %}">Pinturas</a>
                             </li>
                             <li>
-                              <a href="categories-page3.html">Bordados</a>
+                              <a href="{% url 'FilterCategory' 3 %}">Bordados</a>
                             </li>
                             <li>
-                              <a href="categories-page4.html">Tejidos</a>
+                              <a href="{% url 'FilterCategory' 4 %}">Tejidos</a>
                             </li>
                             <li>
-                              <a href="categories-page4.html">Carpinteria</a>
+                              <a href="{% url 'FilterCategory' 5 %}">Carpinteria</a>
                             </li>
                             <li>
-                              <a href="categories-page4.html">Alfareria</a>
+                              <a href="{% url 'FilterCategory' 6 %}">Alfareria</a>
                             </li>
                             <li>
-                              <a href="categories-page4.html">Artesanis Reciclada</a>
+                              <a href="{% url 'FilterCategory' 7 %}">Artesanis Reciclada</a>
                             </li>
                             <li>
-                              <a href="categories-page4.html">Decoracion, Regalos y más</a>
+                              <a href="{% url 'FilterCategory' 8 %}">Decoracion, Regalos y más</a>
                             </li>
                             <li>
-                              <a href="categories-page4.html">Otras</a>
+                              <a href="{% url 'FilterCategory' 9 %}">Otras</a>
                             </li>
                           </ul>
                         </li>
                         <li>
-                          <a href="#">Quienes somos</a>
+                          <a href="{% url 'about' %}">Quienes somos</a>
                         </li>
                         <li><a href="{% url 'contact' %}">Contacto</a></li>
                         <li><a href="contact.html">Vende nuestros productos</a></li>
                         <li>
                           <a href="{% url 'cart' %}">  
-                            <spam><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> (2)</spam>
+                            <spam><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>( {{Count_Cart}})</spam>
                           </a>
                       </li>
 
@@ -446,6 +446,10 @@
 
     {% block content %}{% endblock %}
 
+    {% comment %} Whatsapp buttom  {% endcomment %}
+      <a href="https://wa.me/573007308535?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank" > 
+      <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>
     <!-- footer area -->
     <footer class="footer-type2 ">
       <div class="footer-top">
@@ -456,12 +460,15 @@
               <div class="footer-widget">
                 <div class="footer-logo">
                   <a href="index.html"
+                 
                     ><img
-                      src="{% static 'img/ftr-logo.png' %}"
+                      src="{% static 'img/logon.png' %}"
                       data-rjs="2"
                       alt=""
+                      Style="width: 100px; height: 50px"
                   /></a>
                 </div>
+                
                 <div class="footer-about-text">
                   <p>
                     These cases are perfectly simple and easy to distin guish.
@@ -497,22 +504,19 @@
               <div class="footer-widget">
                 <!-- footer Widget heading -->
                 <div class="footer-header">
-                  <h5>About kinen</h5>
+                  <h5>Acerca de artefex</h5>
                 </div>
                 <!--End of footer Widget heading -->
                 <div class="footer-links">
                   <ul class="links-list list-unstyled mb-0">
                     <li>
-                      <a href="#">About Our Company</a>
+                      <a href="#">acerca de la compañia</a>
                     </li>
                     <li>
-                      <a href="#">License</a>
+                      <a href="#">Politicas de privacidad</a>
                     </li>
                     <li>
-                      <a href="#">Policy Privacy</a>
-                    </li>
-                    <li>
-                      <a href="#">Terms of use</a>
+                      <a href="#">Terminos de uso</a>
                     </li>
                   </ul>
                 </div>
@@ -525,22 +529,19 @@
               <div class="footer-widget">
                 <!-- footer Widget heading -->
                 <div class="footer-header">
-                  <h5>Useful Links</h5>
+                  <h5>Lo más buscado</h5>
                 </div>
                 <!--End of footer Widget heading -->
                 <div class="footer-links">
                   <ul class="links-list list-unstyled mb-0">
                     <li>
-                      <a href="#">Top Sellers</a>
+                      <a href="#">Tienda</a>
                     </li>
                     <li>
-                      <a href="#">Featured Items</a>
+                      <a href="#">Vender nuestros productos</a>
                     </li>
                     <li>
-                      <a href="#">Discount Shop</a>
-                    </li>
-                    <li>
-                      <a href="#">New Arrivals</a>
+                      <a href="#">Crear cuenta</a>
                     </li>
                   </ul>
                 </div>
@@ -553,7 +554,7 @@
               <div class="footer-widget">
                 <!-- footer Widget heading -->
                 <div class="footer-header">
-                  <h5>Useful Links</h5>
+                  <h5>Contacto</h5>
                 </div>
                 <!--End of footer Widget heading -->
                 <div class="footer-contact-wrap">
@@ -562,25 +563,19 @@
                       <span
                         ><i class="fa fa-map-marker" aria-hidden="true"></i
                       ></span>
-                      1622 Colins Street West, Strawberry (Le), ITALY
+                      CC Cantarrana, La ceja 
                     </li>
                     <li>
                       <span
                         ><i class="fa fa-envelope" aria-hidden="true"></i
                       ></span>
-                      <a href="info@emailname.com">Email: info@emailname.com</a>
+                      <a href="info@emailname.com">Correo: AtencionUsuario@artefex.com.co</a>
                     </li>
                     <li>
                       <span
                         ><i class="fa fa-phone" aria-hidden="true"></i
                       ></span>
-                      <a href="+006543219874">Phone: +00 654 321 9874</a>
-                    </li>
-                    <li>
-                      <span
-                        ><i class="fa fa-clock-o" aria-hidden="true"></i
-                      ></span>
-                      Monday - Saturday:9:00 - 18:00 pm
+                      <a href="+006543219874">Telefono: +573007308535</a>
                     </li>
                   </ul>
                 </div>

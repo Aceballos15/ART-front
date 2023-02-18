@@ -57,14 +57,24 @@ class ShopView(View):
     def get(self, request): 
         
         Products= Product.objects.all()
-        
-        return render(request, 'home/shop.html', {'Products': Products})
+        New_Product= Product.objects.all()[:3]
+        return render(request, 'home/shop.html', {'Products': Products, 'NewProducts': New_Product})
 
-    
     
     def post(self, request, *args, **kwargs):
         pass
     
+class CategoryView(View):
+    
+    def get(self, request, category):
+        
+        Products = Product.objects.filter(Category= category )
+        
+        New_Product= Product.objects.all()[:3]
+        
+        return render(request, "home/shop.html", {'Products': Products, 'NewProducts': New_Product})     
+
+
     
 class ProductDetailView(View):
     
@@ -118,7 +128,7 @@ class WishListView(View):
     def get(self, request): 
         return render(request, 'Cart/WishList.html') 
     
-    
+ 
     
 # Functions Cart 
 

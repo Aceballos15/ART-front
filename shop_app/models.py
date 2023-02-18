@@ -59,7 +59,6 @@ class Image(models.Model):
     Image= models.ImageField(upload_to= 'Products', blank=True, null=True)
     
     
-        
       
 class Coment(models.Model):
     Qualification= models.IntegerField()

@@ -3,10 +3,11 @@ from django.views import View
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib import messages
-
+from shop_app.models import Product
 
 def home(request):
-    lista= [0,1 ,2 ,3, 4, 5 ]
+    
+    lista = Product.objects.all()[:6]
     return render(request, "home/index.html", {'lista': lista})
 
 
@@ -18,7 +19,7 @@ class ContactView(View):
     def post(self, request):
         User= request.POST['name']
         Email= request.POST['email']
-        Message= request.POST['message']
+        Message= request.POST['message'] + 'Enviado por: ' + User + ' ' + Email 
         
         email_from= Email
         send_mail(
@@ -28,9 +29,8 @@ class ContactView(View):
             recipient_list= ['ceballoscardonaalexander@gmail.com'], 
             fail_silently= False
         )
-    
-        messages.success(request, "Envio de formulario correctamente")
-        return redirect(to="contact")
+        
+        return redirect(to="home")
 
 def login(request):
     return render(request, "authenticate/login.html")
@@ -38,3 +38,9 @@ def login(request):
 
 def register(request):
     return render(request, "authenticate/Signup.html")
+
+
+def AboutView(request):
+    return render(request, "Home/Blog.html") 
+
+

@@ -33,7 +33,7 @@
                 <p class="text-white">
                   Desdde nuestros ancestros, hasta las nuevas comunidades que viven del arte.
                 </p>
-                <a href="#" class="btn"><b>Ver Más</b></a>
+                <a href="{% url 'shop' %}" class="btn"><b>Ver Más</b></a>
               </div>
               <!-- End of slider text -->
             </div>
@@ -61,7 +61,7 @@
                 <p class="text-white">
                   <strong>Creaciones que se basan en el arte de nuestras manos.</strong> 
                 </p>
-                <a href="#" class="btn"><b>Ir A La Tienda</b></a>
+                <a href="{% url 'shop' %}" class="btn"><b>Ir A La Tienda</b></a>
               </div>
               <!-- End of slider text -->
             </div>
@@ -89,7 +89,7 @@
                 <p class="text-white">
                   Encontraras tejidos, joyas, manualidades, decoracion y cantidad de productos más...
                 </p>
-                <a href="#" class="btn"><b>Ver Más</b></a>
+                <a href="{% url 'shop' %}" class="btn"><b>Ver Más</b></a>
               </div>
               <!-- End of slider text -->
             </div>
@@ -120,7 +120,7 @@
                   Encuentra<br />
                   El regalo perfecto 
                 </h3>
-                <a href="#" class="btn">Comprar ahora</a>
+                <a href="{% url 'shop' %}" class="btn">Comprar ahora</a>
               </div>
             </div>
             <!-- End of single Collection -->
@@ -134,7 +134,7 @@
               <div class="single-add">
                 <p>Para toda ocasion</p>
                 <h3><span>Encuentra</span>Los mejores precios</h3>
-                <a href="#" class="btn">Comprar Ahora</a>
+                <a href="" class="btn">Comprar Ahora</a>
               </div>
             </div>
             <!-- End of single Collection -->
@@ -147,7 +147,7 @@
             >
               <div class="single-add">
                 <h3>Variedad de articulos</h3>
-                <a href="#" class="btn">Comprar Ahora</a>
+                <a href="{% url 'shop' %}" class="btn">Comprar Ahora</a>
               </div>
             </div>
             <!-- End of single Collection -->
@@ -195,18 +195,20 @@
           <div class="product-item">
             <div class="product-thumb">
               <!-- Product Image -->
-              <div class="product-image">
+              <div class="product-image" >
                 <a href="shop-details.html">
                   <img
+                    style="width: 350px; height: 420px"
                     class="normal-state"
                     data-rjs="2"
-                    src="{% static 'img/product/product-01.jpg' %}"
+                    src="{{ i.PrincipalImage.url }}"
                     alt=""
                   />
                   <img
+                    style="width: 350px; height: 420px"
                     class="hover-state"
                     data-rjs="2"
-                    src="{% static 'img/product/product-01.jpg' %}"
+                    src="{{ i.PrincipalImage.url }}"
                     alt=""
                   />
                 </a>
@@ -240,7 +242,7 @@
                 </div>
                 <div class="addto-cart-btn">
                   <div class="addto-icon-btn">
-                    <a href="#">
+                    <a href="{% url 'AddCart' i.id %}">
                       <span class="product-icon"
                         ><img
                           src="{% static 'img/icons/add-bag.svg' %}"
@@ -274,12 +276,19 @@
               <!-- product title -->
               <div class="product-title">
                 <h4>
-                  <a href="shop-details.html">Mochila tejida</a>
+                  <a href="shop-details.html">{{ i.Name }}</a>
                 </h4>
               </div>
               <!-- end of product title -->
 
-              <div class="product-price"><h5>$57.000</h5></div>
+              <div class="product-price">
+                {% if i.Discount %}
+                <h5>${{i.Discount}}</h5>
+                {% else %}
+                <h5>${{i.Price}}</h5>
+                {% endif %}
+                
+              </div>
             </div>
             <!-- End of product info -->
           </div>
